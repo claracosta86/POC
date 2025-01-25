@@ -1,0 +1,76 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.4, pluggy-1.5.0
+rootdir: /mnt/c/Users/clara/OneDrive/Documentos/UFMG/8º/POC I/flask
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-6.0.0
+collected 484 items / 1 skipped
+
+tests/test_appctx.py ..............                                      [  2%]
+tests/test_basic.py .................................................... [ 13%]
+........................................................................ [ 28%]
+......                                                                   [ 29%]
+tests/test_blueprints.py ............................................... [ 39%]
+.............                                                            [ 42%]
+tests/test_cli.py ...............................................ss.s... [ 53%]
+....                                                                     [ 54%]
+tests/test_config.py ...................                                 [ 58%]
+tests/test_converters.py ..                                              [ 58%]
+tests/test_helpers.py ..................................                 [ 65%]
+tests/test_instance_config.py ..........                                 [ 67%]
+tests/test_json.py ...............................                       [ 73%]
+tests/test_json_tag.py ..............                                    [ 76%]
+tests/test_logging.py ......                                             [ 78%]
+tests/test_regression.py .                                               [ 78%]
+tests/test_reqctx.py .......ss.....                                      [ 81%]
+tests/test_request.py ...                                                [ 81%]
+tests/test_session_interface.py .                                        [ 82%]
+tests/test_signals.py .......                                            [ 83%]
+tests/test_subclassing.py .                                              [ 83%]
+tests/test_templating.py ................................                [ 90%]
+tests/test_testing.py .........................                          [ 95%]
+tests/test_user_error_handler.py .........                               [ 97%]
+tests/test_views.py .............                                        [100%]
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Name                                                     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------------------------
+tests/conftest.py                                           88      8     12      2    88%   31, 93-94, 115, 118-120, 125
+tests/templates/template_filter.html                         1      0      0      0   100%
+tests/test_appctx.py                                       143      2      0      0    99%   14, 199
+tests/test_apps/blueprintapp/__init__.py                     7      0      0      0   100%
+tests/test_apps/blueprintapp/apps/__init__.py                0      0      0      0   100%
+tests/test_apps/blueprintapp/apps/admin/__init__.py          9      0      0      0   100%
+tests/test_apps/blueprintapp/apps/frontend/__init__.py       9      0      0      0   100%
+tests/test_apps/cliapp/__init__.py                           0      0      0      0   100%
+tests/test_apps/cliapp/app.py                                2      0      0      0   100%
+tests/test_apps/cliapp/factory.py                            7      0      0      0   100%
+tests/test_apps/cliapp/importerrorapp.py                     2      0      0      0   100%
+tests/test_apps/helloworld/hello.py                          5      1      0      0    80%   8
+tests/test_apps/helloworld/wsgi.py                           1      0      0      0   100%
+tests/test_async.py                                        100     92      0      0     8%   14-145
+tests/test_basic.py                                       1316     14     18      1    99%   33, 43, 47, 74, 84, 616-622, 720-721, 725-726, 1335, 1555->1558, 1647
+tests/test_blueprints.py                                   690      4      4      2    99%   199, 237, 273, 337
+tests/test_cli.py                                          429     31      6      0    92%   96, 105, 123, 403-405, 418-420, 436-438, 527, 538-556, 561-566, 578-581
+tests/test_config.py                                       166      1      2      1    99%   98
+tests/test_converters.py                                    29      0      0      0   100%
+tests/test_helpers.py                                      224     12      2      0    94%   27, 30, 106, 113, 134, 148-150, 153, 167, 232-233
+tests/test_instance_config.py                               56      0      0      0   100%
+tests/test_json.py                                         173     10      8      1    94%   22, 232, 261-267, 336-337
+tests/test_json_tag.py                                      50      0      0      0   100%
+tests/test_logging.py                                       69      0      2      1    99%   32->exit
+tests/test_regression.py                                    21      1      2      1    91%   26
+tests/test_reqctx.py                                       216     43      2      0    80%   68, 72, 151-177, 180-202, 221
+tests/test_request.py                                       50      1      0      0    98%   15
+tests/test_session_interface.py                             17      1      0      0    94%   14
+tests/test_signals.py                                      126      0      0      0   100%
+tests/test_subclassing.py                                   15      0      0      0   100%
+tests/test_templating.py                                   279      0      0      0   100%
+tests/test_testing.py                                      274      2      2      0    99%   192, 209
+tests/test_user_error_handler.py                           203      0      4      0   100%
+tests/test_views.py                                        177      9      0      0    95%   44, 47, 65, 68, 72, 108, 122, 133, 233
+----------------------------------------------------------------------------------------------------
+TOTAL                                                     4954    232     64      9    95%
+
+
+======================== 479 passed, 6 skipped in 8.03s ========================

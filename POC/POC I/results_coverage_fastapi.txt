@@ -1,0 +1,1327 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.4, pluggy-1.5.0
+rootdir: /mnt/c/Users/clara/OneDrive/Documentos/UFMG/8º/POC I/fastapi
+configfile: pyproject.toml
+plugins: anyio-3.7.1, inline-snapshot-0.18.1, cov-6.0.0, html-4.1.1, metadata-3.1.1
+collected 2409 items
+
+tests/test_additional_properties.py ..                                   [  0%]
+tests/test_additional_properties_bool.py ...                             [  0%]
+tests/test_additional_response_extra.py ..                               [  0%]
+tests/test_additional_responses_bad.py .                                 [  0%]
+tests/test_additional_responses_custom_model_in_callback.py .            [  0%]
+tests/test_additional_responses_custom_validationerror.py .              [  0%]
+tests/test_additional_responses_default_validationerror.py .             [  0%]
+tests/test_additional_responses_response_class.py .                      [  0%]
+tests/test_additional_responses_router.py .....                          [  0%]
+tests/test_allow_inf_nan_in_enforcing.py ........................        [  1%]
+tests/test_ambiguous_params.py ..                                        [  1%]
+tests/test_annotated.py .............                                    [  2%]
+tests/test_application.py ........                                       [  2%]
+tests/test_callable_endpoint.py .                                        [  2%]
+tests/test_compat.py .ss......                                           [  3%]
+tests/test_computed_fields.py ...                                        [  3%]
+tests/test_custom_middleware_exception.py ..                             [  3%]
+tests/test_custom_route_class.py .....                                   [  3%]
+tests/test_custom_schema_fields.py ..                                    [  3%]
+tests/test_custom_swagger_ui_redirect.py ...                             [  3%]
+tests/test_datastructures.py .......                                     [  3%]
+tests/test_datetime_custom_encoder.py .s                                 [  4%]
+tests/test_default_response_class.py ..............                      [  4%]
+tests/test_default_response_class_router.py ..............               [  5%]
+tests/test_dependency_cache.py ....                                      [  5%]
+tests/test_dependency_class.py ........                                  [  5%]
+tests/test_dependency_contextmanager.py ......................           [  6%]
+tests/test_dependency_contextvars.py .                                   [  6%]
+tests/test_dependency_duplicates.py .....                                [  6%]
+tests/test_dependency_normal_exceptions.py ..                            [  6%]
+tests/test_dependency_overrides.py ................................      [  8%]
+tests/test_dependency_security_overrides.py ...                          [  8%]
+tests/test_deprecated_openapi_prefix.py ..                               [  8%]
+tests/test_duplicate_models_openapi.py ..                                [  8%]
+tests/test_empty_router.py ..                                            [  8%]
+tests/test_enforce_once_required_parameter.py ...                        [  8%]
+tests/test_exception_handlers.py .....                                   [  9%]
+tests/test_extra_routes.py ........                                      [  9%]
+tests/test_fastapi_cli.py ..                                             [  9%]
+tests/test_filter_pydantic_sub_model/test_filter_pydantic_sub_model_pv1.py s [  9%]
+ss                                                                       [  9%]
+tests/test_filter_pydantic_sub_model_pv2.py ...                          [  9%]
+tests/test_forms_from_non_typing_sequences.py ...                        [  9%]
+tests/test_forms_single_model.py ....                                    [  9%]
+tests/test_forms_single_param.py ..                                      [ 10%]
+tests/test_generate_unique_id_function.py ........                       [ 10%]
+tests/test_generic_parameterless_depends.py ..                           [ 10%]
+tests/test_get_request_body.py ..                                        [ 10%]
+tests/test_http_connection_injection.py ..                               [ 10%]
+tests/test_include_route.py .                                            [ 10%]
+tests/test_include_router_defaults_overrides.py ........................ [ 11%]
+...................                                                      [ 12%]
+tests/test_infer_param_optionality.py .........                          [ 12%]
+tests/test_inherited_custom_class.py .s                                  [ 12%]
+tests/test_invalid_path_param.py .......                                 [ 13%]
+tests/test_invalid_sequence_param.py ....                                [ 13%]
+tests/test_jsonable_encoder.py ......s....s....s....                     [ 14%]
+tests/test_local_docs.py .....                                           [ 14%]
+tests/test_modules_same_name_body/test_main.py .....                     [ 14%]
+tests/test_multi_body_errors.py ....                                     [ 14%]
+tests/test_multi_query_errors.py ...                                     [ 14%]
+tests/test_multipart_installation.py ...........                         [ 15%]
+tests/test_no_swagger_ui_redirect.py ...                                 [ 15%]
+tests/test_openapi_examples.py ..                                        [ 15%]
+tests/test_openapi_query_parameter_extension.py ..                       [ 15%]
+tests/test_openapi_route_extensions.py ..                                [ 15%]
+tests/test_openapi_separate_input_output_schemas.py ......               [ 16%]
+tests/test_openapi_servers.py ..                                         [ 16%]
+tests/test_operations_signatures.py .                                    [ 16%]
+tests/test_orjson_response_class.py .                                    [ 16%]
+tests/test_param_class.py ..                                             [ 16%]
+tests/test_param_in_path_and_dependency.py ..                            [ 16%]
+tests/test_param_include_in_schema.py ........                           [ 16%]
+tests/test_params_repr.py ...........................                    [ 17%]
+tests/test_path.py ..................................................... [ 20%]
+......................                                                   [ 20%]
+tests/test_put_no_body.py ...                                            [ 21%]
+tests/test_query.py .............................                        [ 22%]
+tests/test_read_with_orm_mode.py .s                                      [ 22%]
+tests/test_regex_deprecated_body.py ....                                 [ 22%]
+tests/test_regex_deprecated_params.py ....                               [ 22%]
+tests/test_repeated_cookie_headers.py .                                  [ 22%]
+tests/test_repeated_dependency_schema.py ..                              [ 22%]
+tests/test_repeated_parameter_alias.py ..                                [ 22%]
+tests/test_reponse_set_reponse_code_empty.py ..                          [ 22%]
+tests/test_request_body_parameters_media_type.py .                       [ 22%]
+tests/test_required_noneable.py .......                                  [ 23%]
+tests/test_response_by_alias.py ..........                               [ 23%]
+tests/test_response_change_status_code.py .                              [ 23%]
+tests/test_response_class_no_mediatype.py .                              [ 23%]
+tests/test_response_code_no_body.py ..                                   [ 23%]
+tests/test_response_model_as_return_annotation.py ...................... [ 24%]
+................                                                         [ 25%]
+tests/test_response_model_data_filter.py ...                             [ 25%]
+tests/test_response_model_data_filter_no_inheritance.py ...              [ 25%]
+tests/test_response_model_include_exclude.py ......                      [ 25%]
+tests/test_response_model_invalid.py ....                                [ 26%]
+tests/test_response_model_sub_types.py ..                                [ 26%]
+tests/test_route_scope.py .....                                          [ 26%]
+tests/test_router_events.py ......                                       [ 26%]
+tests/test_router_prefix_with_template.py .                              [ 26%]
+tests/test_router_redirect_slashes.py ..                                 [ 26%]
+tests/test_schema_extra_examples.py ..                                   [ 26%]
+tests/test_security_api_key_cookie.py ...                                [ 26%]
+tests/test_security_api_key_cookie_description.py ...                    [ 27%]
+tests/test_security_api_key_cookie_optional.py ...                       [ 27%]
+tests/test_security_api_key_header.py ...                                [ 27%]
+tests/test_security_api_key_header_description.py ...                    [ 27%]
+tests/test_security_api_key_header_optional.py ...                       [ 27%]
+tests/test_security_api_key_query.py ...                                 [ 27%]
+tests/test_security_api_key_query_description.py ...                     [ 27%]
+tests/test_security_api_key_query_optional.py ...                        [ 27%]
+tests/test_security_http_base.py ...                                     [ 28%]
+tests/test_security_http_base_description.py ...                         [ 28%]
+tests/test_security_http_base_optional.py ...                            [ 28%]
+tests/test_security_http_basic_optional.py .....                         [ 28%]
+tests/test_security_http_basic_realm.py .....                            [ 28%]
+tests/test_security_http_basic_realm_description.py .....                [ 28%]
+tests/test_security_http_bearer.py ....                                  [ 29%]
+tests/test_security_http_bearer_description.py ....                      [ 29%]
+tests/test_security_http_bearer_optional.py ....                         [ 29%]
+tests/test_security_http_digest.py ....                                  [ 29%]
+tests/test_security_http_digest_description.py ....                      [ 29%]
+tests/test_security_http_digest_optional.py ....                         [ 29%]
+tests/test_security_oauth2.py ........                                   [ 30%]
+tests/test_security_oauth2_authorization_code_bearer.py ....             [ 30%]
+tests/test_security_oauth2_authorization_code_bearer_description.py .... [ 30%]
+                                                                         [ 30%]
+tests/test_security_oauth2_optional.py ........                          [ 30%]
+tests/test_security_oauth2_optional_description.py ........              [ 31%]
+tests/test_security_oauth2_password_bearer_optional.py ....              [ 31%]
+tests/test_security_oauth2_password_bearer_optional_description.py ....  [ 31%]
+tests/test_security_openid_connect.py ....                               [ 31%]
+tests/test_security_openid_connect_description.py ....                   [ 31%]
+tests/test_security_openid_connect_optional.py ....                      [ 32%]
+tests/test_serialize_response.py ...                                     [ 32%]
+tests/test_serialize_response_dataclass.py .......                       [ 32%]
+tests/test_serialize_response_model.py ........                          [ 32%]
+tests/test_skip_defaults.py .....                                        [ 33%]
+tests/test_starlette_exception.py .......                                [ 33%]
+tests/test_starlette_urlconvertors.py .....                              [ 33%]
+tests/test_sub_callbacks.py ..                                           [ 33%]
+tests/test_swagger_ui_init_oauth.py ..                                   [ 33%]
+tests/test_tuples.py .......                                             [ 34%]
+tests/test_tutorial/test_additional_responses/test_tutorial001.py ...    [ 34%]
+tests/test_tutorial/test_additional_responses/test_tutorial002.py ...    [ 34%]
+tests/test_tutorial/test_additional_responses/test_tutorial003.py ...    [ 34%]
+tests/test_tutorial/test_additional_responses/test_tutorial004.py ...    [ 34%]
+tests/test_tutorial/test_additional_status_codes/test_tutorial001.py ... [ 34%]
+.......                                                                  [ 34%]
+tests/test_tutorial/test_advanced_middleware/test_tutorial001.py .       [ 34%]
+tests/test_tutorial/test_advanced_middleware/test_tutorial002.py .       [ 35%]
+tests/test_tutorial/test_advanced_middleware/test_tutorial003.py .       [ 35%]
+tests/test_tutorial/test_async_tests/test_main.py ....                   [ 35%]
+tests/test_tutorial/test_background_tasks/test_tutorial001.py .          [ 35%]
+tests/test_tutorial/test_background_tasks/test_tutorial002.py .....      [ 35%]
+tests/test_tutorial/test_behind_a_proxy/test_tutorial001.py ..           [ 35%]
+tests/test_tutorial/test_behind_a_proxy/test_tutorial002.py ..           [ 35%]
+tests/test_tutorial/test_behind_a_proxy/test_tutorial003.py ..           [ 35%]
+tests/test_tutorial/test_behind_a_proxy/test_tutorial004.py ..           [ 35%]
+tests/test_tutorial/test_bigger_applications/test_main.py .............. [ 36%]
+.............................................................            [ 38%]
+tests/test_tutorial/test_body/test_tutorial001.py ...................... [ 39%]
+..........                                                               [ 40%]
+tests/test_tutorial/test_body_fields/test_tutorial001.py ............... [ 40%]
+.....                                                                    [ 41%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial001.py ...... [ 41%]
+...................                                                      [ 42%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial003.py ....   [ 42%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an.py ... [ 42%]
+.                                                                        [ 42%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an_py310.py . [ 42%]
+...                                                                      [ 42%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an_py39.py . [ 42%]
+...                                                                      [ 42%]
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_py310.py . [ 42%]
+...                                                                      [ 42%]
+tests/test_tutorial/test_body_nested_models/test_tutorial009.py ......   [ 43%]
+tests/test_tutorial/test_body_updates/test_tutorial001.py .........sss   [ 43%]
+tests/test_tutorial/test_conditional_openapi/test_tutorial001.py ...     [ 43%]
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial001.py ..     [ 43%]
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial002.py ..     [ 44%]
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial003.py ..     [ 44%]
+tests/test_tutorial/test_cookie_param_models/test_tutorial001.py ....... [ 44%]
+..................                                                       [ 45%]
+tests/test_tutorial/test_cookie_param_models/test_tutorial002.py .....ss [ 45%]
+sss.....sssss.....sssss.....sssss.....sssss                              [ 47%]
+tests/test_tutorial/test_cookie_params/test_tutorial001.py ............. [ 47%]
+............                                                             [ 48%]
+tests/test_tutorial/test_cors/test_tutorial001.py .                      [ 48%]
+tests/test_tutorial/test_custom_docs_ui/test_tutorial001.py ....         [ 48%]
+tests/test_tutorial/test_custom_docs_ui/test_tutorial002.py ....         [ 48%]
+tests/test_tutorial/test_custom_request_and_route/test_tutorial001.py .. [ 48%]
+.                                                                        [ 48%]
+tests/test_tutorial/test_custom_request_and_route/test_tutorial002.py .. [ 48%]
+                                                                         [ 48%]
+tests/test_tutorial/test_custom_request_and_route/test_tutorial003.py .. [ 48%]
+                                                                         [ 48%]
+tests/test_tutorial/test_custom_response/test_tutorial001.py ..          [ 48%]
+tests/test_tutorial/test_custom_response/test_tutorial001b.py ..         [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial004.py ..          [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial005.py ..          [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial006.py ..          [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial006b.py ..         [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial006c.py ..         [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial007.py .           [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial008.py .           [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial009.py .           [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial009b.py .          [ 49%]
+tests/test_tutorial/test_custom_response/test_tutorial009c.py .          [ 49%]
+tests/test_tutorial/test_dataclasses/test_tutorial001.py ...             [ 49%]
+tests/test_tutorial/test_dataclasses/test_tutorial002.py ..              [ 49%]
+tests/test_tutorial/test_dataclasses/test_tutorial003.py ...s            [ 50%]
+tests/test_tutorial/test_dependencies/test_tutorial001.py .............. [ 50%]
+................                                                         [ 51%]
+tests/test_tutorial/test_dependencies/test_tutorial004.py .............. [ 51%]
+.....................                                                    [ 52%]
+tests/test_tutorial/test_dependencies/test_tutorial006.py .............. [ 53%]
+.                                                                        [ 53%]
+tests/test_tutorial/test_dependencies/test_tutorial008b.py .........     [ 53%]
+tests/test_tutorial/test_dependencies/test_tutorial008c.py ............  [ 54%]
+tests/test_tutorial/test_dependencies/test_tutorial008d.py ............  [ 54%]
+tests/test_tutorial/test_dependencies/test_tutorial012.py .............. [ 55%]
+.............                                                            [ 55%]
+tests/test_tutorial/test_events/test_tutorial001.py ..                   [ 55%]
+tests/test_tutorial/test_events/test_tutorial002.py ..                   [ 56%]
+tests/test_tutorial/test_events/test_tutorial003.py ..                   [ 56%]
+tests/test_tutorial/test_extending_openapi/test_tutorial001.py ..        [ 56%]
+tests/test_tutorial/test_extra_data_types/test_tutorial001.py .......... [ 56%]
+                                                                         [ 56%]
+tests/test_tutorial/test_extra_models/test_tutorial003.py ......         [ 56%]
+tests/test_tutorial/test_extra_models/test_tutorial004.py ....           [ 57%]
+tests/test_tutorial/test_extra_models/test_tutorial005.py ....           [ 57%]
+tests/test_tutorial/test_first_steps/test_tutorial001.py ...             [ 57%]
+tests/test_tutorial/test_generate_clients/test_tutorial003.py ....       [ 57%]
+tests/test_tutorial/test_handling_errors/test_tutorial001.py ...         [ 57%]
+tests/test_tutorial/test_handling_errors/test_tutorial002.py ...         [ 57%]
+tests/test_tutorial/test_handling_errors/test_tutorial003.py ...         [ 57%]
+tests/test_tutorial/test_handling_errors/test_tutorial004.py ....        [ 58%]
+tests/test_tutorial/test_handling_errors/test_tutorial005.py ...         [ 58%]
+tests/test_tutorial/test_handling_errors/test_tutorial006.py ....        [ 58%]
+tests/test_tutorial/test_header_param_models/test_tutorial001.py ....... [ 58%]
+.......................                                                  [ 59%]
+tests/test_tutorial/test_header_param_models/test_tutorial002.py .....ss [ 59%]
+sss.....sssss.....sssss.....sssss.....sssss                              [ 61%]
+tests/test_tutorial/test_header_params/test_tutorial001.py ............. [ 62%]
+...                                                                      [ 62%]
+tests/test_tutorial/test_header_params/test_tutorial002.py ............. [ 62%]
+............                                                             [ 63%]
+tests/test_tutorial/test_header_params/test_tutorial003.py ............. [ 63%]
+..                                                                       [ 63%]
+tests/test_tutorial/test_metadata/test_tutorial001.py ..                 [ 64%]
+tests/test_tutorial/test_metadata/test_tutorial001_1.py ..               [ 64%]
+tests/test_tutorial/test_metadata/test_tutorial004.py ..                 [ 64%]
+tests/test_tutorial/test_openapi_callbacks/test_tutorial001.py ...       [ 64%]
+tests/test_tutorial/test_openapi_webhooks/test_tutorial001.py ...        [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial001.py . [ 64%]
+.                                                                        [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial002.py . [ 64%]
+.                                                                        [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial003.py . [ 64%]
+.                                                                        [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial004.py . [ 64%]
+.s                                                                       [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial005.py . [ 64%]
+.                                                                        [ 64%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial006.py . [ 64%]
+.                                                                        [ 65%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial007.py . [ 65%]
+...                                                                      [ 65%]
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial007_pv1.py s [ 65%]
+sss                                                                      [ 65%]
+tests/test_tutorial/test_path_operation_configurations/test_tutorial002b.py . [ 65%]
+..                                                                       [ 65%]
+tests/test_tutorial/test_path_operation_configurations/test_tutorial005.py . [ 65%]
+.....sss                                                                 [ 65%]
+tests/test_tutorial/test_path_operation_configurations/test_tutorial006.py . [ 65%]
+...                                                                      [ 66%]
+tests/test_tutorial/test_path_params/test_tutorial004.py ...             [ 66%]
+tests/test_tutorial/test_path_params/test_tutorial005.py .....           [ 66%]
+tests/test_tutorial/test_query_param_models/test_tutorial001.py ........ [ 66%]
+......................                                                   [ 67%]
+tests/test_tutorial/test_query_param_models/test_tutorial002.py ......ss [ 67%]
+ssss......ssssss......ssssss......ssssss......ssssss                     [ 70%]
+tests/test_tutorial/test_query_params/test_tutorial005.py ...            [ 70%]
+tests/test_tutorial/test_query_params/test_tutorial006.py ......         [ 70%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010.py . [ 70%]
+....                                                                     [ 70%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an.py . [ 70%]
+....                                                                     [ 70%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an_py310.py . [ 70%]
+....                                                                     [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an_py39.py . [ 71%]
+....                                                                     [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_py310.py . [ 71%]
+....                                                                     [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011.py . [ 71%]
+..                                                                       [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an.py . [ 71%]
+..                                                                       [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an_py310.py . [ 71%]
+..                                                                       [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an_py39.py . [ 71%]
+..                                                                       [ 71%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_py310.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_py39.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_an.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_an_py39.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_py39.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013_an.py . [ 72%]
+..                                                                       [ 72%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013_an_py39.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an_py310.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an_py39.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_py310.py . [ 73%]
+..                                                                       [ 73%]
+tests/test_tutorial/test_request_files/test_tutorial001.py ......        [ 73%]
+tests/test_tutorial/test_request_files/test_tutorial001_02.py .....      [ 74%]
+tests/test_tutorial/test_request_files/test_tutorial001_02_an.py .....   [ 74%]
+tests/test_tutorial/test_request_files/test_tutorial001_02_an_py310.py . [ 74%]
+....                                                                     [ 74%]
+tests/test_tutorial/test_request_files/test_tutorial001_02_an_py39.py .. [ 74%]
+...                                                                      [ 74%]
+tests/test_tutorial/test_request_files/test_tutorial001_02_py310.py .... [ 74%]
+.                                                                        [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial001_03.py ...        [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial001_03_an.py ...     [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial001_03_an_py39.py .. [ 75%]
+.                                                                        [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial001_an.py ......     [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial001_an_py39.py ..... [ 75%]
+.                                                                        [ 75%]
+tests/test_tutorial/test_request_files/test_tutorial002.py ......        [ 76%]
+tests/test_tutorial/test_request_files/test_tutorial002_an.py ......     [ 76%]
+tests/test_tutorial/test_request_files/test_tutorial002_an_py39.py ..... [ 76%]
+.                                                                        [ 76%]
+tests/test_tutorial/test_request_files/test_tutorial002_py39.py ......   [ 76%]
+tests/test_tutorial/test_request_files/test_tutorial003.py ....          [ 77%]
+tests/test_tutorial/test_request_files/test_tutorial003_an.py ....       [ 77%]
+tests/test_tutorial/test_request_files/test_tutorial003_an_py39.py ....  [ 77%]
+tests/test_tutorial/test_request_files/test_tutorial003_py39.py ....     [ 77%]
+tests/test_tutorial/test_request_form_models/test_tutorial001.py ....... [ 77%]
+...........                                                              [ 78%]
+tests/test_tutorial/test_request_form_models/test_tutorial002.py ....... [ 78%]
+..............                                                           [ 79%]
+tests/test_tutorial/test_request_form_models/test_tutorial002_pv1.py sss [ 79%]
+ssssssssssssssssss                                                       [ 80%]
+tests/test_tutorial/test_request_forms/test_tutorial001.py ............. [ 80%]
+.....                                                                    [ 80%]
+tests/test_tutorial/test_request_forms_and_files/test_tutorial001.py ... [ 80%]
+...............                                                          [ 81%]
+tests/test_tutorial/test_response_change_status_code/test_tutorial001.py . [ 81%]
+                                                                         [ 81%]
+tests/test_tutorial/test_response_cookies/test_tutorial001.py .          [ 81%]
+tests/test_tutorial/test_response_cookies/test_tutorial002.py .          [ 81%]
+tests/test_tutorial/test_response_headers/test_tutorial001.py .          [ 81%]
+tests/test_tutorial/test_response_headers/test_tutorial002.py .          [ 81%]
+tests/test_tutorial/test_response_model/test_tutorial003.py ..           [ 81%]
+tests/test_tutorial/test_response_model/test_tutorial003_01.py ....      [ 81%]
+tests/test_tutorial/test_response_model/test_tutorial003_02.py ...       [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial003_03.py ..        [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial003_04.py .         [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial003_04_py310.py .   [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial003_05.py ......    [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial003_py310.py ..     [ 82%]
+tests/test_tutorial/test_response_model/test_tutorial004.py ............ [ 83%]
+                                                                         [ 83%]
+tests/test_tutorial/test_response_model/test_tutorial005.py ......       [ 83%]
+tests/test_tutorial/test_response_model/test_tutorial006.py ......       [ 83%]
+tests/test_tutorial/test_schema_extra_example/test_tutorial001.py ....   [ 83%]
+tests/test_tutorial/test_schema_extra_example/test_tutorial001_pv1.py ss [ 83%]
+ss                                                                       [ 83%]
+tests/test_tutorial/test_schema_extra_example/test_tutorial004.py ...... [ 84%]
+....                                                                     [ 84%]
+tests/test_tutorial/test_schema_extra_example/test_tutorial005.py ...... [ 84%]
+....                                                                     [ 84%]
+tests/test_tutorial/test_security/test_tutorial001.py ............       [ 85%]
+tests/test_tutorial/test_security/test_tutorial003.py .................. [ 86%]
+...........................                                              [ 87%]
+tests/test_tutorial/test_security/test_tutorial005.py .................. [ 87%]
+........................................................................ [ 90%]
+........................                                                 [ 91%]
+tests/test_tutorial/test_security/test_tutorial006.py ...............    [ 92%]
+tests/test_tutorial/test_separate_openapi_schemas/test_tutorial001.py .. [ 92%]
+.......                                                                  [ 92%]
+tests/test_tutorial/test_separate_openapi_schemas/test_tutorial002.py .. [ 92%]
+.......                                                                  [ 93%]
+tests/test_tutorial/test_settings/test_app02.py ..                       [ 93%]
+tests/test_tutorial/test_settings/test_tutorial001.py .                  [ 93%]
+tests/test_tutorial/test_settings/test_tutorial001_pv1.py s              [ 93%]
+tests/test_tutorial/test_sql_databases/test_tutorial001.py ............  [ 93%]
+tests/test_tutorial/test_sql_databases/test_tutorial002.py ............  [ 94%]
+tests/test_tutorial/test_sub_applications/test_tutorial001.py ....       [ 94%]
+tests/test_tutorial/test_templates/test_tutorial001.py .                 [ 94%]
+tests/test_tutorial/test_testing/test_main.py ...                        [ 94%]
+tests/test_tutorial/test_testing/test_main_b.py .                        [ 94%]
+tests/test_tutorial/test_testing/test_main_b_an.py .                     [ 94%]
+tests/test_tutorial/test_testing/test_main_b_an_py310.py .               [ 94%]
+tests/test_tutorial/test_testing/test_main_b_an_py39.py .                [ 94%]
+tests/test_tutorial/test_testing/test_main_b_py310.py .                  [ 94%]
+tests/test_tutorial/test_testing/test_tutorial001.py ...                 [ 95%]
+tests/test_tutorial/test_testing/test_tutorial002.py ....                [ 95%]
+tests/test_tutorial/test_testing/test_tutorial003.py .                   [ 95%]
+tests/test_tutorial/test_testing_dependencies/test_tutorial001.py ...... [ 95%]
+....                                                                     [ 95%]
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an.py ... [ 95%]
+.......                                                                  [ 96%]
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an_py310.py . [ 96%]
+......                                                                   [ 96%]
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an_py39.py . [ 96%]
+......                                                                   [ 96%]
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_py310.py . [ 96%]
+......                                                                   [ 96%]
+tests/test_tutorial/test_websockets/test_tutorial001.py ..               [ 97%]
+tests/test_tutorial/test_websockets/test_tutorial002.py ................ [ 97%]
+..............                                                           [ 98%]
+tests/test_tutorial/test_websockets/test_tutorial003.py ..               [ 98%]
+tests/test_tutorial/test_websockets/test_tutorial003_py39.py ..          [ 98%]
+tests/test_tutorial/test_wsgi/test_tutorial001.py ..                     [ 98%]
+tests/test_typing_python39.py .                                          [ 98%]
+tests/test_union_body.py ...                                             [ 98%]
+tests/test_union_inherited_body.py ...                                   [ 98%]
+tests/test_validate_response.py ......                                   [ 99%]
+tests/test_validate_response_dataclass.py ...                            [ 99%]
+tests/test_validate_response_recursive/test_validate_response_recursive_pv1.py s [ 99%]
+                                                                         [ 99%]
+tests/test_validate_response_recursive/test_validate_response_recursive_pv2.py . [ 99%]
+                                                                         [ 99%]
+tests/test_webhooks_security.py ..                                       [ 99%]
+tests/test_ws_dependencies.py ...                                        [ 99%]
+tests/test_ws_router.py ............                                     [100%]
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Name                                                                                      Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------------------------------------------------------
+tests/utils.py                                                                                7      0   100%
+tests/test_ws_router.py                                                                     157      0   100%
+tests/test_ws_dependencies.py                                                                47      0   100%
+tests/test_webhooks_security.py                                                              21      0   100%
+tests/test_validate_response_recursive/test_validate_response_recursive_pv2.py               12      0   100%
+tests/test_validate_response_recursive/app_pv2.py                                            22      0   100%
+tests/test_validate_response_recursive/__init__.py                                            0      0   100%
+tests/test_validate_response_dataclass.py                                                    31      0   100%
+tests/test_validate_response.py                                                              51      0   100%
+tests/test_union_inherited_body.py                                                           26      0   100%
+tests/test_union_body.py                                                                     26      0   100%
+tests/test_typing_python39.py                                                                14      0   100%
+tests/test_tutorial/test_wsgi/test_tutorial001.py                                            11      0   100%
+tests/test_tutorial/test_wsgi/__init__.py                                                     0      0   100%
+tests/test_tutorial/test_websockets/test_tutorial003_py39.py                                 34      0   100%
+tests/test_tutorial/test_websockets/test_tutorial003.py                                      19      0   100%
+tests/test_tutorial/test_websockets/test_tutorial002.py                                      75      0   100%
+tests/test_tutorial/test_websockets/test_tutorial001.py                                      20      0   100%
+tests/test_tutorial/test_websockets/__init__.py                                               0      0   100%
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_py310.py                      38      0   100%
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an_py39.py                    38      0   100%
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an_py310.py                   38      0   100%
+tests/test_tutorial/test_testing_dependencies/test_tutorial001_an.py                         24      0   100%
+tests/test_tutorial/test_testing_dependencies/test_tutorial001.py                            24      0   100%
+tests/test_tutorial/test_testing_dependencies/__init__.py                                     0      0   100%
+tests/test_tutorial/test_testing/test_tutorial003.py                                          5      0   100%
+tests/test_tutorial/test_testing/test_tutorial002.py                                          5      0   100%
+tests/test_tutorial/test_testing/test_tutorial001.py                                          7      0   100%
+tests/test_tutorial/test_testing/test_main_b_py310.py                                        10      0   100%
+tests/test_tutorial/test_testing/test_main_b_an_py39.py                                      10      0   100%
+tests/test_tutorial/test_testing/test_main_b_an_py310.py                                     10      0   100%
+tests/test_tutorial/test_testing/test_main_b_an.py                                            8      0   100%
+tests/test_tutorial/test_testing/test_main_b.py                                               8      0   100%
+tests/test_tutorial/test_testing/test_main.py                                                 7      0   100%
+tests/test_tutorial/test_testing/__init__.py                                                  0      0   100%
+tests/test_tutorial/test_templates/test_tutorial001.py                                       16      0   100%
+tests/test_tutorial/test_templates/__init__.py                                                0      0   100%
+tests/test_tutorial/test_sub_applications/test_tutorial001.py                                21      0   100%
+tests/test_tutorial/test_sub_applications/__init__.py                                         0      0   100%
+tests/test_tutorial/test_sql_databases/test_tutorial002.py                                   70      0   100%
+tests/test_tutorial/test_sql_databases/test_tutorial001.py                                   60      0   100%
+tests/test_tutorial/test_sql_databases/__init__.py                                            0      0   100%
+tests/test_tutorial/test_settings/test_tutorial001.py                                        11      0   100%
+tests/test_tutorial/test_settings/test_app02.py                                              13      0   100%
+tests/test_tutorial/test_settings/__init__.py                                                 0      0   100%
+tests/test_tutorial/test_separate_openapi_schemas/test_tutorial002.py                        22      0   100%
+tests/test_tutorial/test_separate_openapi_schemas/test_tutorial001.py                        22      0   100%
+tests/test_tutorial/test_separate_openapi_schemas/__init__.py                                 0      0   100%
+tests/test_tutorial/test_security/test_tutorial006.py                                        35      0   100%
+tests/test_tutorial/test_security/test_tutorial005.py                                       120      0   100%
+tests/test_tutorial/test_security/test_tutorial003.py                                        49      0   100%
+tests/test_tutorial/test_security/test_tutorial001.py                                        27      0   100%
+tests/test_tutorial/test_security/__init__.py                                                 0      0   100%
+tests/test_tutorial/test_schema_extra_example/test_tutorial005.py                            17      0   100%
+tests/test_tutorial/test_schema_extra_example/test_tutorial004.py                            17      0   100%
+tests/test_tutorial/test_schema_extra_example/test_tutorial001.py                            18      0   100%
+tests/test_tutorial/test_schema_extra_example/__init__.py                                     0      0   100%
+tests/test_tutorial/test_response_model/test_tutorial006.py                                  22      0   100%
+tests/test_tutorial/test_response_model/test_tutorial005.py                                  22      0   100%
+tests/test_tutorial/test_response_model/test_tutorial004.py                                  19      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_py310.py                            19      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_05.py                               21      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_04_py310.py                          7      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_04.py                                5      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_03.py                               11      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_02.py                               15      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003_01.py                               18      0   100%
+tests/test_tutorial/test_response_model/test_tutorial003.py                                  12      0   100%
+tests/test_tutorial/test_response_model/__init__.py                                           0      0   100%
+tests/test_tutorial/test_response_headers/test_tutorial002.py                                 8      0   100%
+tests/test_tutorial/test_response_headers/test_tutorial001.py                                 9      0   100%
+tests/test_tutorial/test_response_headers/__init__.py                                         0      0   100%
+tests/test_tutorial/test_response_cookies/test_tutorial002.py                                 8      0   100%
+tests/test_tutorial/test_response_cookies/test_tutorial001.py                                 8      0   100%
+tests/test_tutorial/test_response_cookies/__init__.py                                         0      0   100%
+tests/test_tutorial/test_response_change_status_code/test_tutorial001.py                     11      0   100%
+tests/test_tutorial/test_response_change_status_code/__init__.py                              0      0   100%
+tests/test_tutorial/test_request_forms_and_files/test_tutorial001.py                         48      0   100%
+tests/test_tutorial/test_request_forms_and_files/__init__.py                                  0      0   100%
+tests/test_tutorial/test_request_forms/test_tutorial001.py                                   34      0   100%
+tests/test_tutorial/test_request_forms/__init__.py                                            0      0   100%
+tests/test_tutorial/test_request_form_models/test_tutorial002.py                             44      0   100%
+tests/test_tutorial/test_request_form_models/test_tutorial001.py                             34      0   100%
+tests/test_tutorial/test_request_form_models/__init__.py                                      0      0   100%
+tests/test_tutorial/test_request_files/test_tutorial003_py39.py                              46      0   100%
+tests/test_tutorial/test_request_files/test_tutorial003_an_py39.py                           46      0   100%
+tests/test_tutorial/test_request_files/test_tutorial003_an.py                                32      0   100%
+tests/test_tutorial/test_request_files/test_tutorial003.py                                   32      0   100%
+tests/test_tutorial/test_request_files/test_tutorial002_py39.py                              57      0   100%
+tests/test_tutorial/test_request_files/test_tutorial002_an_py39.py                           56      0   100%
+tests/test_tutorial/test_request_files/test_tutorial002_an.py                                41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial002.py                                   41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_an_py39.py                           49      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_an.py                                41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_03_an_py39.py                        29      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_03_an.py                             23      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_03.py                                23      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_02_py310.py                          41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_02_an_py39.py                        41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_02_an_py310.py                       41      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_02_an.py                             32      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001_02.py                                32      0   100%
+tests/test_tutorial/test_request_files/test_tutorial001.py                                   42      0   100%
+tests/test_tutorial/test_request_files/__init__.py                                            0      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_py310.py              23      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an_py39.py            23      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an_py310.py           23      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014_an.py                 15      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial014.py                    15      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013_an_py39.py            25      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013_an.py                 17      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial013.py                    17      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_py39.py               25      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_an_py39.py            25      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012_an.py                 17      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial012.py                    17      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_py39.py               26      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_py310.py              26      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an_py39.py            26      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an_py310.py           26      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011_an.py                 18      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial011.py                    18      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_py310.py              35      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an_py39.py            35      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an_py310.py           35      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010_an.py                 29      0   100%
+tests/test_tutorial/test_query_params_str_validations/test_tutorial010.py                    29      0   100%
+tests/test_tutorial/test_query_params_str_validations/__init__.py                             0      0   100%
+tests/test_tutorial/test_query_params/test_tutorial006.py                                    22      0   100%
+tests/test_tutorial/test_query_params/test_tutorial005.py                                    16      0   100%
+tests/test_tutorial/test_query_params/__init__.py                                             0      0   100%
+tests/test_tutorial/test_query_param_models/test_tutorial002.py                              31      0   100%
+tests/test_tutorial/test_query_param_models/test_tutorial001.py                              31      0   100%
+tests/test_tutorial/test_query_param_models/__init__.py                                       0      0   100%
+tests/test_tutorial/test_path_params/test_tutorial005.py                                     25      0   100%
+tests/test_tutorial/test_path_params/test_tutorial004.py                                     17      0   100%
+tests/test_tutorial/test_path_params/__init__.py                                              0      0   100%
+tests/test_tutorial/test_path_operation_configurations/test_tutorial006.py                   13      0   100%
+tests/test_tutorial/test_path_operation_configurations/test_tutorial002b.py                  15      0   100%
+tests/test_tutorial/test_path_operation_configurations/__init__.py                            0      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial007.py          31      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial006.py          11      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial005.py          10      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial003.py          11      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial002.py          11      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial001.py          11      0   100%
+tests/test_tutorial/test_path_operation_advanced_configurations/__init__.py                   0      0   100%
+tests/test_tutorial/test_openapi_webhooks/test_tutorial001.py                                13      0   100%
+tests/test_tutorial/test_openapi_webhooks/__init__.py                                         0      0   100%
+tests/test_tutorial/test_openapi_callbacks/test_tutorial001.py                               14      0   100%
+tests/test_tutorial/test_openapi_callbacks/__init__.py                                        0      0   100%
+tests/test_tutorial/test_metadata/test_tutorial004.py                                        12      0   100%
+tests/test_tutorial/test_metadata/test_tutorial001_1.py                                      11      0   100%
+tests/test_tutorial/test_metadata/test_tutorial001.py                                        11      0   100%
+tests/test_tutorial/test_metadata/__init__.py                                                 0      0   100%
+tests/test_tutorial/test_header_params/test_tutorial003.py                                   19      0   100%
+tests/test_tutorial/test_header_params/test_tutorial002.py                                   19      0   100%
+tests/test_tutorial/test_header_params/test_tutorial001.py                                   19      0   100%
+tests/test_tutorial/test_header_params/__init__.py                                            0      0   100%
+tests/test_tutorial/test_header_param_models/test_tutorial002.py                             32      0   100%
+tests/test_tutorial/test_header_param_models/test_tutorial001.py                             31      0   100%
+tests/test_tutorial/test_header_param_models/__init__.py                                      0      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial006.py                                 20      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial005.py                                 17      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial004.py                                 20      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial003.py                                 15      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial002.py                                 16      0   100%
+tests/test_tutorial/test_handling_errors/test_tutorial001.py                                 16      0   100%
+tests/test_tutorial/test_handling_errors/__init__.py                                          0      0   100%
+tests/test_tutorial/test_generate_clients/test_tutorial003.py                                19      0   100%
+tests/test_tutorial/test_generate_clients/__init__.py                                         0      0   100%
+tests/test_tutorial/test_first_steps/test_tutorial001.py                                     13      0   100%
+tests/test_tutorial/test_first_steps/__init__.py                                              0      0   100%
+tests/test_tutorial/test_extra_models/test_tutorial005.py                                    17      0   100%
+tests/test_tutorial/test_extra_models/test_tutorial004.py                                    17      0   100%
+tests/test_tutorial/test_extra_models/test_tutorial003.py                                    22      0   100%
+tests/test_tutorial/test_extra_models/__init__.py                                             0      0   100%
+tests/test_tutorial/test_extra_data_types/test_tutorial001.py                                22      0   100%
+tests/test_tutorial/test_extra_data_types/__init__.py                                         0      0   100%
+tests/test_tutorial/test_extending_openapi/test_tutorial001.py                               15      0   100%
+tests/test_tutorial/test_extending_openapi/__init__.py                                        0      0   100%
+tests/test_tutorial/test_events/test_tutorial003.py                                          15      0   100%
+tests/test_tutorial/test_events/test_tutorial002.py                                          20      0   100%
+tests/test_tutorial/test_events/test_tutorial001.py                                          18      0   100%
+tests/test_tutorial/test_events/__init__.py                                                   0      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial012.py                                    46      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial008d.py                                   29      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial008c.py                                   30      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial008b.py                                   21      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial006.py                                    30      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial004.py                                    19      0   100%
+tests/test_tutorial/test_dependencies/test_tutorial001.py                                    19      0   100%
+tests/test_tutorial/test_dependencies/__init__.py                                             0      0   100%
+tests/test_tutorial/test_dataclasses/test_tutorial002.py                                     12      0   100%
+tests/test_tutorial/test_dataclasses/test_tutorial001.py                                     16      0   100%
+tests/test_tutorial/test_dataclasses/__init__.py                                              0      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial009c.py                                 6      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial009b.py                                12      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial009.py                                 12      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial008.py                                 12      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial007.py                                  7      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial006c.py                                11      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial006b.py                                11      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial006.py                                 11      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial005.py                                 11      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial004.py                                 12      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial001b.py                                11      0   100%
+tests/test_tutorial/test_custom_response/test_tutorial001.py                                 11      0   100%
+tests/test_tutorial/test_custom_response/__init__.py                                          0      0   100%
+tests/test_tutorial/test_custom_request_and_route/test_tutorial003.py                        12      0   100%
+tests/test_tutorial/test_custom_request_and_route/test_tutorial002.py                        10      0   100%
+tests/test_tutorial/test_custom_request_and_route/test_tutorial001.py                        25      0   100%
+tests/test_tutorial/test_custom_request_and_route/__init__.py                                 0      0   100%
+tests/test_tutorial/test_custom_docs_ui/test_tutorial002.py                                  30      0   100%
+tests/test_tutorial/test_custom_docs_ui/test_tutorial001.py                                  30      0   100%
+tests/test_tutorial/test_custom_docs_ui/__init__.py                                           0      0   100%
+tests/test_tutorial/test_cors/test_tutorial001.py                                            19      0   100%
+tests/test_tutorial/test_cors/__init__.py                                                     0      0   100%
+tests/test_tutorial/test_cookie_params/test_tutorial001.py                                   21      0   100%
+tests/test_tutorial/test_cookie_params/__init__.py                                            0      0   100%
+tests/test_tutorial/test_cookie_param_models/test_tutorial002.py                             40      0   100%
+tests/test_tutorial/test_cookie_param_models/test_tutorial001.py                             40      0   100%
+tests/test_tutorial/test_cookie_param_models/__init__.py                                      0      0   100%
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial003.py                            20      0   100%
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial002.py                            20      0   100%
+tests/test_tutorial/test_configure_swagger_ui/test_tutorial001.py                            19      0   100%
+tests/test_tutorial/test_configure_swagger_ui/__init__.py                                     0      0   100%
+tests/test_tutorial/test_conditional_openapi/test_tutorial001.py                             33      0   100%
+tests/test_tutorial/test_conditional_openapi/__init__.py                                      0      0   100%
+tests/test_tutorial/test_body_updates/__init__.py                                             0      0   100%
+tests/test_tutorial/test_body_nested_models/test_tutorial009.py                              24      0   100%
+tests/test_tutorial/test_body_nested_models/__init__.py                                       0      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_py310.py                      29      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an_py39.py                    29      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an_py310.py                   29      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial003_an.py                         24      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial003.py                            24      0   100%
+tests/test_tutorial/test_body_multiple_params/test_tutorial001.py                            30      0   100%
+tests/test_tutorial/test_body_multiple_params/__init__.py                                     0      0   100%
+tests/test_tutorial/test_body_fields/test_tutorial001.py                                     26      0   100%
+tests/test_tutorial/test_body_fields/__init__.py                                              0      0   100%
+tests/test_tutorial/test_body/test_tutorial001.py                                            80      0   100%
+tests/test_tutorial/test_body/__init__.py                                                     0      0   100%
+tests/test_tutorial/test_bigger_applications/test_main.py                                   110      0   100%
+tests/test_tutorial/test_bigger_applications/__init__.py                                      0      0   100%
+tests/test_tutorial/test_behind_a_proxy/test_tutorial004.py                                  12      0   100%
+tests/test_tutorial/test_behind_a_proxy/test_tutorial003.py                                  12      0   100%
+tests/test_tutorial/test_behind_a_proxy/test_tutorial002.py                                  11      0   100%
+tests/test_tutorial/test_behind_a_proxy/test_tutorial001.py                                  11      0   100%
+tests/test_tutorial/test_behind_a_proxy/__init__.py                                           0      0   100%
+tests/test_tutorial/test_background_tasks/test_tutorial002.py                                19      0   100%
+tests/test_tutorial/test_background_tasks/test_tutorial001.py                                13      0   100%
+tests/test_tutorial/test_background_tasks/__init__.py                                         0      0   100%
+tests/test_tutorial/test_async_tests/test_main.py                                             5      0   100%
+tests/test_tutorial/test_async_tests/__init__.py                                              0      0   100%
+tests/test_tutorial/test_advanced_middleware/test_tutorial003.py                             15      0   100%
+tests/test_tutorial/test_advanced_middleware/test_tutorial002.py                             12      0   100%
+tests/test_tutorial/test_advanced_middleware/test_tutorial001.py                             10      0   100%
+tests/test_tutorial/test_advanced_middleware/__init__.py                                      0      0   100%
+tests/test_tutorial/test_additional_status_codes/test_tutorial001.py                         17      0   100%
+tests/test_tutorial/test_additional_status_codes/__init__.py                                  0      0   100%
+tests/test_tutorial/test_additional_responses/test_tutorial004.py                            21      0   100%
+tests/test_tutorial/test_additional_responses/test_tutorial003.py                            15      0   100%
+tests/test_tutorial/test_additional_responses/test_tutorial002.py                            21      0   100%
+tests/test_tutorial/test_additional_responses/test_tutorial001.py                            15      0   100%
+tests/test_tutorial/test_additional_responses/__init__.py                                     0      0   100%
+tests/test_tutorial/__init__.py                                                               0      0   100%
+tests/test_tuples.py                                                                         58      0   100%
+tests/test_swagger_ui_init_oauth.py                                                          18      0   100%
+tests/test_sub_callbacks.py                                                                  39      0   100%
+tests/test_starlette_urlconvertors.py                                                        36      0   100%
+tests/test_starlette_exception.py                                                            52      0   100%
+tests/test_skip_defaults.py                                                                  50      0   100%
+tests/test_serialize_response_model.py                                                       66      0   100%
+tests/test_serialize_response_dataclass.py                                                   62      0   100%
+tests/test_serialize_response.py                                                             31      0   100%
+tests/test_security_openid_connect_optional.py                                               36      0   100%
+tests/test_security_openid_connect_description.py                                            31      0   100%
+tests/test_security_openid_connect.py                                                        31      0   100%
+tests/test_security_oauth2_password_bearer_optional_description.py                           28      0   100%
+tests/test_security_oauth2_password_bearer_optional.py                                       28      0   100%
+tests/test_security_oauth2_optional_description.py                                           56      0   100%
+tests/test_security_oauth2_optional.py                                                       56      0   100%
+tests/test_security_oauth2_authorization_code_bearer_description.py                          26      0   100%
+tests/test_security_oauth2_authorization_code_bearer.py                                      26      0   100%
+tests/test_security_oauth2.py                                                                51      0   100%
+tests/test_security_http_digest_optional.py                                                  28      0   100%
+tests/test_security_http_digest_description.py                                               25      0   100%
+tests/test_security_http_digest.py                                                           25      0   100%
+tests/test_security_http_bearer_optional.py                                                  28      0   100%
+tests/test_security_http_bearer_description.py                                               25      0   100%
+tests/test_security_http_bearer.py                                                           25      0   100%
+tests/test_security_http_basic_realm_description.py                                          35      0   100%
+tests/test_security_http_basic_realm.py                                                      35      0   100%
+tests/test_security_http_basic_optional.py                                                   37      0   100%
+tests/test_security_http_base_optional.py                                                    24      0   100%
+tests/test_security_http_base_description.py                                                 21      0   100%
+tests/test_security_http_base.py                                                             21      0   100%
+tests/test_security_api_key_query_optional.py                                                32      0   100%
+tests/test_security_api_key_query_description.py                                             27      0   100%
+tests/test_security_api_key_query.py                                                         27      0   100%
+tests/test_security_api_key_header_optional.py                                               32      0   100%
+tests/test_security_api_key_header_description.py                                            27      0   100%
+tests/test_security_api_key_header.py                                                        27      0   100%
+tests/test_security_api_key_cookie_optional.py                                               34      0   100%
+tests/test_security_api_key_cookie_description.py                                            29      0   100%
+tests/test_security_api_key_cookie.py                                                        29      0   100%
+tests/test_router_redirect_slashes.py                                                        26      0   100%
+tests/test_router_prefix_with_template.py                                                    13      0   100%
+tests/test_router_events.py                                                                 176      0   100%
+tests/test_response_model_sub_types.py                                                       33      0   100%
+tests/test_response_model_invalid.py                                                         26      0   100%
+tests/test_response_model_include_exclude.py                                                 57      0   100%
+tests/test_response_model_data_filter_no_inheritance.py                                      43      0   100%
+tests/test_response_model_data_filter.py                                                     41      0   100%
+tests/test_response_model_as_return_annotation.py                                           281      0   100%
+tests/test_response_code_no_body.py                                                          28      0   100%
+tests/test_response_class_no_mediatype.py                                                    22      0   100%
+tests/test_response_change_status_code.py                                                    15      0   100%
+tests/test_required_noneable.py                                                              38      0   100%
+tests/test_request_body_parameters_media_type.py                                             20      0   100%
+tests/test_reponse_set_reponse_code_empty.py                                                 17      0   100%
+tests/test_repeated_parameter_alias.py                                                       16      0   100%
+tests/test_repeated_dependency_schema.py                                                     22      0   100%
+tests/test_repeated_cookie_headers.py                                                        19      0   100%
+tests/test_regex_deprecated_params.py                                                        40      0   100%
+tests/test_regex_deprecated_body.py                                                          40      0   100%
+tests/test_query.py                                                                         119      0   100%
+tests/test_put_no_body.py                                                                    19      0   100%
+tests/test_path.py                                                                          303      0   100%
+tests/test_params_repr.py                                                                    63      0   100%
+tests/test_param_include_in_schema.py                                                        46      0   100%
+tests/test_param_in_path_and_dependency.py                                                   16      0   100%
+tests/test_param_class.py                                                                    17      0   100%
+tests/test_orjson_response_class.py                                                          14      0   100%
+tests/test_operations_signatures.py                                                          17      0   100%
+tests/test_openapi_servers.py                                                                15      0   100%
+tests/test_openapi_separate_input_output_schemas.py                                          72      0   100%
+tests/test_openapi_route_extensions.py                                                       15      0   100%
+tests/test_openapi_query_parameter_extension.py                                              17      0   100%
+tests/test_openapi_examples.py                                                               39      0   100%
+tests/test_no_swagger_ui_redirect.py                                                         20      0   100%
+tests/test_multipart_installation.py                                                        101      0   100%
+tests/test_multi_query_errors.py                                                             21      0   100%
+tests/test_multi_body_errors.py                                                              30      0   100%
+tests/test_modules_same_name_body/test_main.py                                               25      0   100%
+tests/test_modules_same_name_body/app/main.py                                                 5      0   100%
+tests/test_modules_same_name_body/app/b.py                                                    5      0   100%
+tests/test_modules_same_name_body/app/a.py                                                    5      0   100%
+tests/test_modules_same_name_body/app/__init__.py                                             0      0   100%
+tests/test_modules_same_name_body/__init__.py                                                 0      0   100%
+tests/test_local_docs.py                                                                     41      0   100%
+tests/test_invalid_sequence_param.py                                                         32      0   100%
+tests/test_invalid_path_param.py                                                             45      0   100%
+tests/test_infer_param_optionality.py                                                        63      0   100%
+tests/test_include_router_defaults_overrides.py                                             181      0   100%
+tests/test_include_route.py                                                                  14      0   100%
+tests/test_http_connection_injection.py                                                      24      0   100%
+tests/test_get_request_body.py                                                               20      0   100%
+tests/test_generic_parameterless_depends.py                                                  29      0   100%
+tests/test_generate_unique_id_function.py                                                   125      0   100%
+tests/test_forms_single_param.py                                                             16      0   100%
+tests/test_forms_single_model.py                                                             33      0   100%
+tests/test_forms_from_non_typing_sequences.py                                                25      0   100%
+tests/test_filter_pydantic_sub_model_pv2.py                                                  46      0   100%
+tests/test_filter_pydantic_sub_model/__init__.py                                              0      0   100%
+tests/test_fastapi_cli.py                                                                    14      0   100%
+tests/test_extra_routes.py                                                                   64      0   100%
+tests/test_exception_handlers.py                                                             50      0   100%
+tests/test_enforce_once_required_parameter.py                                                27      0   100%
+tests/test_empty_router.py                                                                   22      0   100%
+tests/test_duplicate_models_openapi.py                                                       23      0   100%
+tests/test_deprecated_openapi_prefix.py                                                      15      0   100%
+tests/test_dependency_security_overrides.py                                                  30      0   100%
+tests/test_dependency_overrides.py                                                          156      0   100%
+tests/test_dependency_normal_exceptions.py                                                   48      0   100%
+tests/test_dependency_duplicates.py                                                          44      0   100%
+tests/test_dependency_contextvars.py                                                         26      0   100%
+tests/test_dependency_contextmanager.py                                                     271      0   100%
+tests/test_dependency_class.py                                                               61      0   100%
+tests/test_dependency_cache.py                                                               54      0   100%
+tests/test_default_response_class_router.py                                                 135      0   100%
+tests/test_default_response_class.py                                                        141      0   100%
+tests/test_datastructures.py                                                                 51      0   100%
+tests/test_custom_swagger_ui_redirect.py                                                     23      0   100%
+tests/test_custom_route_class.py                                                             45      0   100%
+tests/test_custom_middleware_exception.py                                                    51      0   100%
+tests/test_computed_fields.py                                                                34      0   100%
+tests/test_callable_endpoint.py                                                              14      0   100%
+tests/test_application.py                                                                    34      0   100%
+tests/test_annotated.py                                                                      60      0   100%
+tests/test_ambiguous_params.py                                                               34      0   100%
+tests/test_allow_inf_nan_in_enforcing.py                                                     25      0   100%
+tests/test_additional_responses_router.py                                                    41      0   100%
+tests/test_additional_responses_response_class.py                                            22      0   100%
+tests/test_additional_responses_default_validationerror.py                                   10      0   100%
+tests/test_additional_responses_custom_validationerror.py                                    20      0   100%
+tests/test_additional_responses_custom_model_in_callback.py                                  18      0   100%
+tests/test_additional_responses_bad.py                                                       11      0   100%
+tests/test_additional_response_extra.py                                                      19      0   100%
+tests/test_additional_properties.py                                                          19      0   100%
+tests/main.py                                                                               124      0   100%
+tests/__init__.py                                                                             0      0   100%
+fastapi/websockets.py                                                                         3      0   100%
+fastapi/types.py                                                                              8      0   100%
+fastapi/testclient.py                                                                         1      0   100%
+fastapi/templating.py                                                                         1      0   100%
+fastapi/staticfiles.py                                                                        1      0   100%
+fastapi/security/utils.py                                                                     6      0   100%
+fastapi/security/open_id_connect_url.py                                                      19      0   100%
+fastapi/security/oauth2.py                                                                   64      0   100%
+fastapi/security/http.py                                                                     88      0   100%
+fastapi/security/base.py                                                                      4      0   100%
+fastapi/security/api_key.py                                                                  45      0   100%
+fastapi/security/__init__.py                                                                 15      0   100%
+fastapi/responses.py                                                                         20      0   100%
+fastapi/requests.py                                                                           2      0   100%
+fastapi/param_functions.py                                                                   24      0   100%
+fastapi/openapi/utils.py                                                                    259      0   100%
+fastapi/openapi/docs.py                                                                      29      0   100%
+fastapi/openapi/constants.py                                                                  3      0   100%
+fastapi/openapi/__init__.py                                                                   0      0   100%
+fastapi/middleware/wsgi.py                                                                    1      0   100%
+fastapi/middleware/trustedhost.py                                                             1      0   100%
+fastapi/middleware/httpsredirect.py                                                           1      0   100%
+fastapi/middleware/gzip.py                                                                    1      0   100%
+fastapi/middleware/cors.py                                                                    1      0   100%
+fastapi/middleware/__init__.py                                                                1      0   100%
+fastapi/logger.py                                                                             2      0   100%
+fastapi/exceptions.py                                                                        34      0   100%
+fastapi/exception_handlers.py                                                                17      0   100%
+fastapi/dependencies/models.py                                                               31      0   100%
+fastapi/dependencies/__init__.py                                                              0      0   100%
+fastapi/concurrency.py                                                                       18      0   100%
+fastapi/cli.py                                                                                8      0   100%
+fastapi/background.py                                                                         7      0   100%
+fastapi/applications.py                                                                     152      0   100%
+fastapi/__main__.py                                                                           2      0   100%
+fastapi/__init__.py                                                                          21      0   100%
+docs_src/wsgi/tutorial001.py                                                                 14      0   100%
+docs_src/websockets/tutorial003_py39.py                                                      32      0   100%
+docs_src/websockets/tutorial003.py                                                           33      0   100%
+docs_src/websockets/tutorial002_py310.py                                                     20      0   100%
+docs_src/websockets/tutorial002_an_py39.py                                                   21      0   100%
+docs_src/websockets/tutorial002_an_py310.py                                                  21      0   100%
+docs_src/websockets/tutorial002_an.py                                                        22      0   100%
+docs_src/websockets/tutorial002.py                                                           21      0   100%
+docs_src/websockets/tutorial001.py                                                           13      0   100%
+docs_src/websockets/__init__.py                                                               0      0   100%
+docs_src/templates/tutorial001.py                                                            10      0   100%
+docs_src/sub_applications/tutorial001.py                                                     10      0   100%
+docs_src/sql_databases/tutorial002_py39.py                                                   66      0   100%
+docs_src/sql_databases/tutorial002_py310.py                                                  65      0   100%
+docs_src/sql_databases/tutorial002_an_py39.py                                                67      0   100%
+docs_src/sql_databases/tutorial002_an_py310.py                                               67      0   100%
+docs_src/sql_databases/tutorial002_an.py                                                     68      0   100%
+docs_src/sql_databases/tutorial002.py                                                        66      0   100%
+docs_src/sql_databases/tutorial001_py39.py                                                   45      0   100%
+docs_src/sql_databases/tutorial001_py310.py                                                  44      0   100%
+docs_src/sql_databases/tutorial001_an_py39.py                                                46      0   100%
+docs_src/sql_databases/tutorial001_an_py310.py                                               46      0   100%
+docs_src/sql_databases/tutorial001_an.py                                                     47      0   100%
+docs_src/sql_databases/tutorial001.py                                                        45      0   100%
+docs_src/sql_databases/__init__.py                                                            0      0   100%
+docs_src/settings/tutorial001.py                                                             11      0   100%
+docs_src/settings/app02/test_main.py                                                         11      0   100%
+docs_src/settings/app02/main.py                                                              10      0   100%
+docs_src/settings/app02/config.py                                                             5      0   100%
+docs_src/settings/app02/__init__.py                                                           0      0   100%
+docs_src/separate_openapi_schemas/tutorial002_py39.py                                        13      0   100%
+docs_src/separate_openapi_schemas/tutorial002_py310.py                                       12      0   100%
+docs_src/separate_openapi_schemas/tutorial002.py                                             13      0   100%
+docs_src/separate_openapi_schemas/tutorial001_py39.py                                        13      0   100%
+docs_src/separate_openapi_schemas/tutorial001_py310.py                                       12      0   100%
+docs_src/separate_openapi_schemas/tutorial001.py                                             13      0   100%
+docs_src/security/tutorial006_an_py39.py                                                      8      0   100%
+docs_src/security/tutorial006_an.py                                                           8      0   100%
+docs_src/security/tutorial006.py                                                              7      0   100%
+docs_src/security/tutorial005_py39.py                                                        93      0   100%
+docs_src/security/tutorial005_py310.py                                                       92      0   100%
+docs_src/security/tutorial005_an_py39.py                                                     93      0   100%
+docs_src/security/tutorial005_an_py310.py                                                    93      0   100%
+docs_src/security/tutorial005_an.py                                                          94      0   100%
+docs_src/security/tutorial005.py                                                             93      0   100%
+docs_src/security/tutorial003_py310.py                                                       44      0   100%
+docs_src/security/tutorial003_an_py39.py                                                     45      0   100%
+docs_src/security/tutorial003_an_py310.py                                                    45      0   100%
+docs_src/security/tutorial003_an.py                                                          46      0   100%
+docs_src/security/tutorial003.py                                                             45      0   100%
+docs_src/security/tutorial001_an_py39.py                                                      8      0   100%
+docs_src/security/tutorial001_an.py                                                           8      0   100%
+docs_src/security/tutorial001.py                                                              7      0   100%
+docs_src/schema_extra_example/tutorial005_py310.py                                           12      0   100%
+docs_src/schema_extra_example/tutorial005_an_py39.py                                         13      0   100%
+docs_src/schema_extra_example/tutorial005_an_py310.py                                        13      0   100%
+docs_src/schema_extra_example/tutorial005_an.py                                              14      0   100%
+docs_src/schema_extra_example/tutorial005.py                                                 13      0   100%
+docs_src/schema_extra_example/tutorial004_py310.py                                           12      0   100%
+docs_src/schema_extra_example/tutorial004_an_py39.py                                         13      0   100%
+docs_src/schema_extra_example/tutorial004_an_py310.py                                        13      0   100%
+docs_src/schema_extra_example/tutorial004_an.py                                              14      0   100%
+docs_src/schema_extra_example/tutorial004.py                                                 13      0   100%
+docs_src/schema_extra_example/tutorial001_py310.py                                           13      0   100%
+docs_src/schema_extra_example/tutorial001.py                                                 14      0   100%
+docs_src/response_model/tutorial006_py310.py                                                 15      0   100%
+docs_src/response_model/tutorial006.py                                                       16      0   100%
+docs_src/response_model/tutorial005_py310.py                                                 15      0   100%
+docs_src/response_model/tutorial005.py                                                       16      0   100%
+docs_src/response_model/tutorial004_py39.py                                                  14      0   100%
+docs_src/response_model/tutorial004_py310.py                                                 13      0   100%
+docs_src/response_model/tutorial004.py                                                       14      0   100%
+docs_src/response_model/tutorial003_py310.py                                                 16      0   100%
+docs_src/response_model/tutorial003_05_py310.py                                               8      0   100%
+docs_src/response_model/tutorial003_05.py                                                     9      0   100%
+docs_src/response_model/tutorial003_03.py                                                     6      0   100%
+docs_src/response_model/tutorial003_02.py                                                     8      0   100%
+docs_src/response_model/tutorial003_01_py310.py                                              12      0   100%
+docs_src/response_model/tutorial003_01.py                                                    13      0   100%
+docs_src/response_model/tutorial003.py                                                       16      0   100%
+docs_src/response_headers/tutorial002.py                                                      6      0   100%
+docs_src/response_headers/tutorial001.py                                                      8      0   100%
+docs_src/response_cookies/tutorial002.py                                                      6      0   100%
+docs_src/response_cookies/tutorial001.py                                                      9      0   100%
+docs_src/response_change_status_code/tutorial001.py                                           9      0   100%
+docs_src/request_forms_and_files/tutorial001_an_py39.py                                       6      0   100%
+docs_src/request_forms_and_files/tutorial001_an.py                                            6      0   100%
+docs_src/request_forms_and_files/tutorial001.py                                               5      0   100%
+docs_src/request_forms/tutorial001_an_py39.py                                                 6      0   100%
+docs_src/request_forms/tutorial001_an.py                                                      6      0   100%
+docs_src/request_forms/tutorial001.py                                                         5      0   100%
+docs_src/request_form_models/tutorial002_an_py39.py                                          11      0   100%
+docs_src/request_form_models/tutorial002_an.py                                               11      0   100%
+docs_src/request_form_models/tutorial002.py                                                  10      0   100%
+docs_src/request_form_models/tutorial001_an_py39.py                                          10      0   100%
+docs_src/request_form_models/tutorial001_an.py                                               10      0   100%
+docs_src/request_form_models/tutorial001.py                                                   9      0   100%
+docs_src/request_files/tutorial003_py39.py                                                   13      0   100%
+docs_src/request_files/tutorial003_an_py39.py                                                14      0   100%
+docs_src/request_files/tutorial003_an.py                                                     15      0   100%
+docs_src/request_files/tutorial003.py                                                        14      0   100%
+docs_src/request_files/tutorial002_py39.py                                                   13      0   100%
+docs_src/request_files/tutorial002_an_py39.py                                                14      0   100%
+docs_src/request_files/tutorial002_an.py                                                     15      0   100%
+docs_src/request_files/tutorial002.py                                                        14      0   100%
+docs_src/request_files/tutorial001_an_py39.py                                                 9      0   100%
+docs_src/request_files/tutorial001_an.py                                                      9      0   100%
+docs_src/request_files/tutorial001_03_an_py39.py                                              9      0   100%
+docs_src/request_files/tutorial001_03_an.py                                                   9      0   100%
+docs_src/request_files/tutorial001_03.py                                                      8      0   100%
+docs_src/request_files/tutorial001_02_py310.py                                               12      0   100%
+docs_src/request_files/tutorial001_02_an_py39.py                                             13      0   100%
+docs_src/request_files/tutorial001_02_an_py310.py                                            13      0   100%
+docs_src/request_files/tutorial001_02_an.py                                                  14      0   100%
+docs_src/request_files/tutorial001_02.py                                                     13      0   100%
+docs_src/request_files/tutorial001.py                                                         8      0   100%
+docs_src/query_params_str_validations/tutorial014_py310.py                                    7      0   100%
+docs_src/query_params_str_validations/tutorial014_an_py39.py                                  8      0   100%
+docs_src/query_params_str_validations/tutorial014_an_py310.py                                 8      0   100%
+docs_src/query_params_str_validations/tutorial014_an.py                                       9      0   100%
+docs_src/query_params_str_validations/tutorial014.py                                          8      0   100%
+docs_src/query_params_str_validations/tutorial013_an_py39.py                                  7      0   100%
+docs_src/query_params_str_validations/tutorial013_an.py                                       7      0   100%
+docs_src/query_params_str_validations/tutorial013.py                                          6      0   100%
+docs_src/query_params_str_validations/tutorial012_py39.py                                     6      0   100%
+docs_src/query_params_str_validations/tutorial012_an_py39.py                                  7      0   100%
+docs_src/query_params_str_validations/tutorial012_an.py                                       8      0   100%
+docs_src/query_params_str_validations/tutorial012.py                                          7      0   100%
+docs_src/query_params_str_validations/tutorial011_py39.py                                     7      0   100%
+docs_src/query_params_str_validations/tutorial011_py310.py                                    6      0   100%
+docs_src/query_params_str_validations/tutorial011_an_py39.py                                  7      0   100%
+docs_src/query_params_str_validations/tutorial011_an_py310.py                                 7      0   100%
+docs_src/query_params_str_validations/tutorial011_an.py                                       8      0   100%
+docs_src/query_params_str_validations/tutorial011.py                                          7      0   100%
+docs_src/query_params_str_validations/tutorial010_py310.py                                    8      0   100%
+docs_src/query_params_str_validations/tutorial010_an_py39.py                                  9      0   100%
+docs_src/query_params_str_validations/tutorial010_an_py310.py                                 9      0   100%
+docs_src/query_params_str_validations/tutorial010_an.py                                      10      0   100%
+docs_src/query_params_str_validations/tutorial010.py                                          9      0   100%
+docs_src/query_params/tutorial006_py310.py                                                    6      0   100%
+docs_src/query_params/tutorial006.py                                                          7      0   100%
+docs_src/query_params/tutorial005.py                                                          6      0   100%
+docs_src/query_param_models/tutorial002_py39.py                                              13      0   100%
+docs_src/query_param_models/tutorial002_py310.py                                             13      0   100%
+docs_src/query_param_models/tutorial002_an_py39.py                                           13      0   100%
+docs_src/query_param_models/tutorial002_an_py310.py                                          13      0   100%
+docs_src/query_param_models/tutorial002_an.py                                                14      0   100%
+docs_src/query_param_models/tutorial002.py                                                   14      0   100%
+docs_src/query_param_models/tutorial001_py39.py                                              12      0   100%
+docs_src/query_param_models/tutorial001_py310.py                                             12      0   100%
+docs_src/query_param_models/tutorial001_an_py39.py                                           12      0   100%
+docs_src/query_param_models/tutorial001_an_py310.py                                          12      0   100%
+docs_src/query_param_models/tutorial001_an.py                                                13      0   100%
+docs_src/query_param_models/tutorial001.py                                                   13      0   100%
+docs_src/path_params/tutorial005.py                                                          14      0   100%
+docs_src/path_params/tutorial004.py                                                           5      0   100%
+docs_src/path_operation_configuration/tutorial006.py                                         11      0   100%
+docs_src/path_operation_configuration/tutorial005_py39.py                                    13      0   100%
+docs_src/path_operation_configuration/tutorial005_py310.py                                   12      0   100%
+docs_src/path_operation_configuration/tutorial005.py                                         13      0   100%
+docs_src/path_operation_configuration/tutorial002b.py                                        12      0   100%
+docs_src/path_operation_advanced_configuration/tutorial007.py                                20      0   100%
+docs_src/path_operation_advanced_configuration/tutorial006.py                                 9      0   100%
+docs_src/path_operation_advanced_configuration/tutorial005.py                                 5      0   100%
+docs_src/path_operation_advanced_configuration/tutorial004.py                                13      0   100%
+docs_src/path_operation_advanced_configuration/tutorial003.py                                 5      0   100%
+docs_src/path_operation_advanced_configuration/tutorial002.py                                11      0   100%
+docs_src/path_operation_advanced_configuration/tutorial001.py                                 5      0   100%
+docs_src/openapi_webhooks/tutorial001.py                                                     13      0   100%
+docs_src/openapi_callbacks/tutorial001.py                                                    21      0   100%
+docs_src/metadata/tutorial004.py                                                              9      0   100%
+docs_src/metadata/tutorial001_1.py                                                            6      0   100%
+docs_src/metadata/tutorial001.py                                                              6      0   100%
+docs_src/header_params/tutorial003_py310.py                                                   5      0   100%
+docs_src/header_params/tutorial003_an_py39.py                                                 6      0   100%
+docs_src/header_params/tutorial003_an_py310.py                                                6      0   100%
+docs_src/header_params/tutorial003_an.py                                                      7      0   100%
+docs_src/header_params/tutorial003.py                                                         6      0   100%
+docs_src/header_params/tutorial002_py310.py                                                   5      0   100%
+docs_src/header_params/tutorial002_an_py39.py                                                 6      0   100%
+docs_src/header_params/tutorial002_an_py310.py                                                6      0   100%
+docs_src/header_params/tutorial002_an.py                                                      7      0   100%
+docs_src/header_params/tutorial002.py                                                         6      0   100%
+docs_src/header_params/tutorial001_py310.py                                                   5      0   100%
+docs_src/header_params/tutorial001_an_py310.py                                                6      0   100%
+docs_src/header_params/tutorial001_an.py                                                      7      0   100%
+docs_src/header_params/tutorial001.py                                                         6      0   100%
+docs_src/header_param_models/tutorial002_py310.py                                            13      0   100%
+docs_src/header_param_models/tutorial002_an_py39.py                                          14      0   100%
+docs_src/header_param_models/tutorial002_an_py310.py                                         14      0   100%
+docs_src/header_param_models/tutorial002_an.py                                               15      0   100%
+docs_src/header_param_models/tutorial002.py                                                  14      0   100%
+docs_src/header_param_models/tutorial001_py39.py                                             13      0   100%
+docs_src/header_param_models/tutorial001_py310.py                                            12      0   100%
+docs_src/header_param_models/tutorial001_an_py39.py                                          13      0   100%
+docs_src/header_param_models/tutorial001_an_py310.py                                         13      0   100%
+docs_src/header_param_models/tutorial001_an.py                                               14      0   100%
+docs_src/header_param_models/tutorial001.py                                                  13      0   100%
+docs_src/handling_errors/tutorial006.py                                                      18      0   100%
+docs_src/handling_errors/tutorial005.py                                                      15      0   100%
+docs_src/handling_errors/tutorial004.py                                                      16      0   100%
+docs_src/handling_errors/tutorial003.py                                                      14      0   100%
+docs_src/handling_errors/tutorial002.py                                                       8      0   100%
+docs_src/handling_errors/tutorial001.py                                                       8      0   100%
+docs_src/generate_clients/tutorial003.py                                                     24      0   100%
+docs_src/first_steps/tutorial001.py                                                           5      0   100%
+docs_src/extra_models/tutorial005_py39.py                                                     5      0   100%
+docs_src/extra_models/tutorial005.py                                                          6      0   100%
+docs_src/extra_models/tutorial004_py39.py                                                    10      0   100%
+docs_src/extra_models/tutorial004.py                                                         11      0   100%
+docs_src/extra_models/tutorial003_py310.py                                                   16      0   100%
+docs_src/extra_models/tutorial003.py                                                         16      0   100%
+docs_src/extra_data_types/tutorial001_py310.py                                                9      0   100%
+docs_src/extra_data_types/tutorial001_an_py39.py                                             10      0   100%
+docs_src/extra_data_types/tutorial001_an_py310.py                                            10      0   100%
+docs_src/extra_data_types/tutorial001_an.py                                                  11      0   100%
+docs_src/extra_data_types/tutorial001.py                                                     10      0   100%
+docs_src/extending_openapi/tutorial001.py                                                    14      0   100%
+docs_src/events/tutorial003.py                                                               15      0   100%
+docs_src/events/tutorial002.py                                                                9      0   100%
+docs_src/events/tutorial001.py                                                               10      0   100%
+docs_src/dependency_testing/tutorial001_py310.py                                             27      0   100%
+docs_src/dependency_testing/tutorial001_an_py39.py                                           28      0   100%
+docs_src/dependency_testing/tutorial001_an_py310.py                                          28      0   100%
+docs_src/dependency_testing/tutorial001_an.py                                                29      0   100%
+docs_src/dependency_testing/tutorial001.py                                                   28      0   100%
+docs_src/dependencies/tutorial012_an_py39.py                                                 16      0   100%
+docs_src/dependencies/tutorial012_an.py                                                      16      0   100%
+docs_src/dependencies/tutorial012.py                                                         15      0   100%
+docs_src/dependencies/tutorial008d_an_py39.py                                                18      0   100%
+docs_src/dependencies/tutorial008d_an.py                                                     18      0   100%
+docs_src/dependencies/tutorial008d.py                                                        17      0   100%
+docs_src/dependencies/tutorial008c_an_py39.py                                                17      0   100%
+docs_src/dependencies/tutorial008c_an.py                                                     17      0   100%
+docs_src/dependencies/tutorial008c.py                                                        16      0   100%
+docs_src/dependencies/tutorial008b_an_py39.py                                                19      0   100%
+docs_src/dependencies/tutorial008b_an.py                                                     19      0   100%
+docs_src/dependencies/tutorial008b.py                                                        18      0   100%
+docs_src/dependencies/tutorial006_an_py39.py                                                 13      0   100%
+docs_src/dependencies/tutorial006_an.py                                                      13      0   100%
+docs_src/dependencies/tutorial006.py                                                         12      0   100%
+docs_src/dependencies/tutorial004_py310.py                                                   16      0   100%
+docs_src/dependencies/tutorial004_an_py39.py                                                 17      0   100%
+docs_src/dependencies/tutorial004_an_py310.py                                                17      0   100%
+docs_src/dependencies/tutorial004_an.py                                                      18      0   100%
+docs_src/dependencies/tutorial004.py                                                         17      0   100%
+docs_src/dependencies/tutorial001_py310.py                                                   10      0   100%
+docs_src/dependencies/tutorial001_an_py39.py                                                 11      0   100%
+docs_src/dependencies/tutorial001_an_py310.py                                                11      0   100%
+docs_src/dependencies/tutorial001_an.py                                                      12      0   100%
+docs_src/dependencies/tutorial001.py                                                         11      0   100%
+docs_src/dataclasses/tutorial003.py                                                          19      0   100%
+docs_src/dataclasses/tutorial002.py                                                          14      0   100%
+docs_src/dataclasses/tutorial001.py                                                          13      0   100%
+docs_src/custom_response/tutorial009c.py                                                     12      0   100%
+docs_src/custom_response/tutorial009b.py                                                      7      0   100%
+docs_src/custom_response/tutorial009.py                                                       7      0   100%
+docs_src/custom_response/tutorial008.py                                                      10      0   100%
+docs_src/custom_response/tutorial007.py                                                       9      0   100%
+docs_src/custom_response/tutorial006c.py                                                      6      0   100%
+docs_src/custom_response/tutorial006b.py                                                      6      0   100%
+docs_src/custom_response/tutorial006.py                                                       6      0   100%
+docs_src/custom_response/tutorial005.py                                                       6      0   100%
+docs_src/custom_response/tutorial004.py                                                       9      0   100%
+docs_src/custom_response/tutorial001b.py                                                      6      0   100%
+docs_src/custom_response/tutorial001.py                                                       6      0   100%
+docs_src/custom_request_and_route/tutorial003.py                                             26      0   100%
+docs_src/custom_request_and_route/tutorial002.py                                             20      0   100%
+docs_src/custom_request_and_route/tutorial001.py                                             24      0   100%
+docs_src/custom_docs_ui/tutorial002.py                                                       17      0   100%
+docs_src/custom_docs_ui/tutorial001.py                                                       15      0   100%
+docs_src/cors/tutorial001.py                                                                  8      0   100%
+docs_src/cookie_params/tutorial001_py310.py                                                   5      0   100%
+docs_src/cookie_params/tutorial001_an_py39.py                                                 6      0   100%
+docs_src/cookie_params/tutorial001_an_py310.py                                                6      0   100%
+docs_src/cookie_params/tutorial001_an.py                                                      7      0   100%
+docs_src/cookie_params/tutorial001.py                                                         6      0   100%
+docs_src/cookie_param_models/tutorial002_py310.py                                            11      0   100%
+docs_src/cookie_param_models/tutorial002_an_py39.py                                          12      0   100%
+docs_src/cookie_param_models/tutorial002_an_py310.py                                         12      0   100%
+docs_src/cookie_param_models/tutorial002_an.py                                               13      0   100%
+docs_src/cookie_param_models/tutorial002.py                                                  12      0   100%
+docs_src/cookie_param_models/tutorial001_py310.py                                            10      0   100%
+docs_src/cookie_param_models/tutorial001_an_py39.py                                          11      0   100%
+docs_src/cookie_param_models/tutorial001_an_py310.py                                         11      0   100%
+docs_src/cookie_param_models/tutorial001_an.py                                               12      0   100%
+docs_src/cookie_param_models/tutorial001.py                                                  11      0   100%
+docs_src/configure_swagger_ui/tutorial003.py                                                  5      0   100%
+docs_src/configure_swagger_ui/tutorial002.py                                                  5      0   100%
+docs_src/configure_swagger_ui/tutorial001.py                                                  5      0   100%
+docs_src/conditional_openapi/tutorial001.py                                                   9      0   100%
+docs_src/body_updates/tutorial001_py39.py                                                    20      0   100%
+docs_src/body_updates/tutorial001_py310.py                                                   19      0   100%
+docs_src/body_updates/tutorial001.py                                                         20      0   100%
+docs_src/body_nested_models/tutorial009_py39.py                                               5      0   100%
+docs_src/body_nested_models/tutorial009.py                                                    6      0   100%
+docs_src/body_multiple_params/tutorial003_py310.py                                           15      0   100%
+docs_src/body_multiple_params/tutorial003_an_py39.py                                         16      0   100%
+docs_src/body_multiple_params/tutorial003_an_py310.py                                        16      0   100%
+docs_src/body_multiple_params/tutorial003_an.py                                              17      0   100%
+docs_src/body_multiple_params/tutorial003.py                                                 16      0   100%
+docs_src/body_multiple_params/tutorial001_py310.py                                           16      0   100%
+docs_src/body_multiple_params/tutorial001_an_py39.py                                         17      0   100%
+docs_src/body_multiple_params/tutorial001_an_py310.py                                        17      0   100%
+docs_src/body_multiple_params/tutorial001_an.py                                              18      0   100%
+docs_src/body_multiple_params/tutorial001.py                                                 17      0   100%
+docs_src/body_fields/tutorial001_py310.py                                                    12      0   100%
+docs_src/body_fields/tutorial001_an_py39.py                                                  13      0   100%
+docs_src/body_fields/tutorial001_an_py310.py                                                 13      0   100%
+docs_src/body_fields/tutorial001_an.py                                                       14      0   100%
+docs_src/body_fields/tutorial001.py                                                          13      0   100%
+docs_src/body/tutorial001_py310.py                                                           11      0   100%
+docs_src/body/tutorial001.py                                                                 12      0   100%
+docs_src/bigger_applications/app_an_py39/routers/users.py                                    11      0   100%
+docs_src/bigger_applications/app_an_py39/routers/items.py                                    17      0   100%
+docs_src/bigger_applications/app_an_py39/routers/__init__.py                                  0      0   100%
+docs_src/bigger_applications/app_an_py39/main.py                                             11      0   100%
+docs_src/bigger_applications/app_an_py39/internal/admin.py                                    5      0   100%
+docs_src/bigger_applications/app_an_py39/internal/__init__.py                                 0      0   100%
+docs_src/bigger_applications/app_an_py39/dependencies.py                                      8      0   100%
+docs_src/bigger_applications/app_an_py39/__init__.py                                          0      0   100%
+docs_src/bigger_applications/app_an/routers/users.py                                         11      0   100%
+docs_src/bigger_applications/app_an/routers/items.py                                         17      0   100%
+docs_src/bigger_applications/app_an/routers/__init__.py                                       0      0   100%
+docs_src/bigger_applications/app_an/main.py                                                  11      0   100%
+docs_src/bigger_applications/app_an/internal/admin.py                                         5      0   100%
+docs_src/bigger_applications/app_an/internal/__init__.py                                      0      0   100%
+docs_src/bigger_applications/app_an/dependencies.py                                           8      0   100%
+docs_src/bigger_applications/app_an/__init__.py                                               0      0   100%
+docs_src/bigger_applications/app/routers/users.py                                            11      0   100%
+docs_src/bigger_applications/app/routers/items.py                                            17      0   100%
+docs_src/bigger_applications/app/routers/__init__.py                                          0      0   100%
+docs_src/bigger_applications/app/main.py                                                     11      0   100%
+docs_src/bigger_applications/app/internal/admin.py                                            5      0   100%
+docs_src/bigger_applications/app/internal/__init__.py                                         0      0   100%
+docs_src/bigger_applications/app/dependencies.py                                              7      0   100%
+docs_src/bigger_applications/app/__init__.py                                                  0      0   100%
+docs_src/bigger_applications/__init__.py                                                      0      0   100%
+docs_src/behind_a_proxy/tutorial004.py                                                        5      0   100%
+docs_src/behind_a_proxy/tutorial003.py                                                        5      0   100%
+docs_src/behind_a_proxy/tutorial002.py                                                        5      0   100%
+docs_src/behind_a_proxy/tutorial001.py                                                        5      0   100%
+docs_src/background_tasks/tutorial002_py310.py                                               15      0   100%
+docs_src/background_tasks/tutorial002_an_py39.py                                             16      0   100%
+docs_src/background_tasks/tutorial002_an_py310.py                                            16      0   100%
+docs_src/background_tasks/tutorial002_an.py                                                  17      0   100%
+docs_src/background_tasks/tutorial002.py                                                     16      0   100%
+docs_src/background_tasks/tutorial001.py                                                     10      0   100%
+docs_src/async_tests/test_main.py                                                             9      0   100%
+docs_src/async_tests/main.py                                                                  5      0   100%
+docs_src/async_tests/__init__.py                                                              0      0   100%
+docs_src/app_testing/tutorial003.py                                                          16      0   100%
+docs_src/app_testing/tutorial002.py                                                          22      0   100%
+docs_src/app_testing/tutorial001.py                                                          11      0   100%
+docs_src/app_testing/test_main.py                                                             7      0   100%
+docs_src/app_testing/main.py                                                                  5      0   100%
+docs_src/app_testing/app_b_py310/test_main.py                                                27      0   100%
+docs_src/app_testing/app_b_py310/main.py                                                     24      0   100%
+docs_src/app_testing/app_b_py310/__init__.py                                                  0      0   100%
+docs_src/app_testing/app_b_an_py39/test_main.py                                              27      0   100%
+docs_src/app_testing/app_b_an_py39/main.py                                                   25      0   100%
+docs_src/app_testing/app_b_an_py39/__init__.py                                                0      0   100%
+docs_src/app_testing/app_b_an_py310/test_main.py                                             27      0   100%
+docs_src/app_testing/app_b_an_py310/main.py                                                  25      0   100%
+docs_src/app_testing/app_b_an_py310/__init__.py                                               0      0   100%
+docs_src/app_testing/app_b_an/test_main.py                                                   27      0   100%
+docs_src/app_testing/app_b_an/main.py                                                        26      0   100%
+docs_src/app_testing/app_b_an/__init__.py                                                     0      0   100%
+docs_src/app_testing/app_b/test_main.py                                                      27      0   100%
+docs_src/app_testing/app_b/main.py                                                           25      0   100%
+docs_src/app_testing/app_b/__init__.py                                                        0      0   100%
+docs_src/app_testing/__init__.py                                                              0      0   100%
+docs_src/advanced_middleware/tutorial003.py                                                   7      0   100%
+docs_src/advanced_middleware/tutorial002.py                                                   7      0   100%
+docs_src/advanced_middleware/tutorial001.py                                                   7      0   100%
+docs_src/additional_status_codes/tutorial001_py310.py                                        14      0   100%
+docs_src/additional_status_codes/tutorial001_an_py39.py                                      15      0   100%
+docs_src/additional_status_codes/tutorial001_an_py310.py                                     15      0   100%
+docs_src/additional_status_codes/tutorial001_an.py                                           16      0   100%
+docs_src/additional_status_codes/tutorial001.py                                              15      0   100%
+docs_src/additional_responses/tutorial004.py                                                 14      0   100%
+docs_src/additional_responses/tutorial003.py                                                 14      0   100%
+docs_src/additional_responses/tutorial002.py                                                 13      0   100%
+docs_src/additional_responses/tutorial001.py                                                 14      0   100%
+
+
+
+
+fastapi/dependencies/utils.py                                                               485      1    99%   708
+fastapi/openapi/models.py                                                                   276      4    99%   64-65, 227-228
+fastapi/routing.py                                                                          376     15    96%   86-123, 159, 174, 191
+fastapi/params.py                                                                           103      6    94%   113, 129-130, 569, 585-586
+fastapi/datastructures.py                                                                    57      5    91%   143, 149, 159-161
+fastapi/encoders.py                                                                          98     10    90%   209-211, 213, 215, 220-222, 234, 259
+fastapi/_compat.py                                                                          315    107    66%   291-526
+fastapi/utils.py                                                                             91     37    59%   80, 85, 118-161
+
+tests/test_schema_extra_examples.py                                                         115      2    98%   23-24
+tests/test_response_by_alias.py                                                              82      2    98%   29-30
+tests/test_route_scope.py                                                                    33      1    97%   50
+tests/test_additional_properties_bool.py                                                     29      2    93%   15-16
+tests/test_custom_schema_fields.py                                                           24      2    92%   20-21
+tests/test_compat.py                                                                         60      5    92%   32, 41-51
+tests/test_tutorial/test_body_updates/test_tutorial001.py                                    26      3    88%   194-196
+tests/test_tutorial/test_path_operation_configurations/test_tutorial005.py                   23      3    87%   143-145
+tests/test_tutorial/test_dataclasses/test_tutorial003.py                                     22      3    86%   195-197
+tests/test_jsonable_encoder.py                                                              198     30    85%   65-66, 155-172, 210-221, 247-248, 263-264, 278-279, 287-291
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial004.py          18      3    83%   127-129
+tests/test_inherited_custom_class.py                                                         69     23    67%   76-109
+tests/test_datetime_custom_encoder.py                                                        37     13    65%   37-57
+tests/test_tutorial/test_schema_extra_example/test_tutorial001_pv1.py                        18      8    56%   17-20, 25-34, 39-42
+tests/test_read_with_orm_mode.py                                                             64     29    55%   51-88
+tests/test_filter_pydantic_sub_model/test_filter_pydantic_sub_model_pv1.py                   24     12    50%   10-13, 18-20, 29-31, 42-44
+tests/test_tutorial/test_settings/test_tutorial001_pv1.py                                    11      6    45%   9-15
+tests/test_tutorial/test_request_form_models/test_tutorial002_pv1.py                         44     24    45%   18-21, 27-29, 35-39, 53-55, 69-71, 85-87, 106-108, 127-129
+tests/test_tutorial/test_path_operation_advanced_configurations/test_tutorial007_pv1.py      31     18    42%   9-12, 17-26, 34-43, 48-58, 67-69
+tests/test_validate_response_recursive/test_validate_response_recursive_pv1.py               12      8    33%   8-20
+tests/test_validate_response_recursive/app_pv1.py                                            21     21     0%   1-37
+tests/test_filter_pydantic_sub_model/app_pv1.py                                              22     22     0%   1-35
+
+pdm_build.py                                                                                 12     12     0%   1-20
+-----------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                     20142    437    98%
+
+=============================== inline snapshot ================================
+Info: one snapshot changed its representation (--inline-snapshot=update)
+
+You can also use --inline-snapshot=review to approve the changes interactively
+
+================ 2279 passed, 130 skipped in 121.04s (0:02:01) =================
