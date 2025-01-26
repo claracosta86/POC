@@ -1,3 +1,7 @@
+### Códigos de teste usados do Bitwarde:
+1. test/Identity.Test/Controllers/AccountsControllerTests.cs
+2. test/Billing.Test/Controllers/FreshdeskControllerTests.cs
+
 ### Classes:
 - Classe original (CO)
 - Classe artificialmente alterada (CAA)
@@ -7,20 +11,15 @@
 ### Tipos de prompt:
 - Multi-step (MS)
 - Zero-shot (ZS)
-
-
+  
 ### Tipos de teste:
 1. Completar o #TODO
-2. Estender a classe
-3. Aumentar a cobertura
+2. Aumentar a cobertura
+3. Estender a classe
 4. Manter o padrão
 
 
-test/Identity.Test/Controllers/AccountsControllerTests.cs
-
-
-1 -
-
+#### 1. Completar o #TODO
 MS Prompt:
 
 ```` 
@@ -436,7 +435,7 @@ public async Task PostRegister_WhenUserServiceFails_ShouldThrowBadRequestExcepti
 
 ----> Novamente, embora o modelo tenha entendido sua tarefa e chegado perto de reproduzir o original, o teste alterado não passou, desta vez pelo uso indevido de _Func<Task>_.
 
-2 - 
+#### 2. Aumentar a cobertura
 
 MS - Prompt:
 
@@ -566,7 +565,7 @@ The `[Theory]` attribute indicates that the test will run multiple times with di
     }
 ````
 
-###CR2
+### CR2
 
 ````csharp
 [Theory]
@@ -758,7 +757,8 @@ R:
 
 ---->
 
-3 - 
+#### 3. Estender a classe
+
 
 MS - Prompt:
 
@@ -1130,7 +1130,7 @@ R:
 
 ---->
 
-4 - 
+#### 4. Manter o padrão
 
 MS - Prompt:
 
