@@ -6,3 +6,6 @@
 ````
 python3 downloadGguf.py
 ````
+
+> [!NOTE]
+> Os arquivos `read_files{smth}.py` foram tentativas de conseguir que o modelo interpretasse um arquivo como comando.
