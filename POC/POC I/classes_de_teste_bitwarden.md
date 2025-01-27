@@ -591,7 +591,6 @@ public async Task PostWebhook_NullRequiredParameters_BadRequest(string freshdesk
     Assert.Equal(StatusCodes.Status400BadRequest, statusCodeResult.StatusCode);
 }
 ````
-----> O novo teste falhou, portanto sem melhora na cobertura. 
 
 ZS - Prompt:
 
@@ -600,12 +599,26 @@ P:
 Eu tenho essa classe: {CST}, gostaria que melhorasse a cobertura de seu caso de teste {CO}. Não é necessário passar informações de usuário.
 
 R:
+ Para melhorar a cobertura de teste da sua classe `PostPrelogin`, você pode considerar a adição de testes que verifiquem o comportamento da função em casos diferentes. Aqui estão alguns sugestões de testes adicionais:
+
+1. Caso de teste para quando o usuário não existe no repositório:
+
+{CR1}
+
+2. Caso de teste para a criação de um novo usuário com dados padrão quando o usuário não existe no repositório:
+
+{CR2}
+
+3. Caso de teste para quando o usuário existe e a senha for incorreta:
+
+{CR3}
+
+Neste último caso de teste, você pode adicionar uma função `HashPassword` para hashear a senha passada para comparar com a senha armazenada no usuário.
 ````
 
 ### CST
 
 ````csharp
-// Moved from API, If you modify this endpoint, please update API as well. Self hosted installs still use the API endpoints.
     [HttpPost("prelogin")]
     public async Task<PreloginResponseModel> PostPrelogin([FromBody] PreloginRequestModel model)
     {
@@ -617,11 +630,9 @@ R:
         return new PreloginResponseModel(kdfInformation);
     }
 ````
-
 ### CO
 
 ````csharp
-  [Fact]
     public async Task PostPrelogin_WhenUserExists_ShouldReturnUserKdfInfo()
     {
         var userKdfInfo = new UserKdfInformation
@@ -638,10 +649,49 @@ R:
     }
 ````
 
-### CR
+### CR1
 
 ````csharp
+public async Task PostPrelogin_WhenUserDoesNotExist_ShouldReturnDefaultKdfInfo()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns((UserKdfInformation?)null);
+    var response = await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com" });
+    Assert.Equal(AuthConstants.DEFAULT_KDF, response.Kdf);
+    Assert.Equal(AuthConstants.DEFAULT_KDF_ITERATIONS, response.KdfIterations);
+}
+````
 
+### CR2
+
+````csharp
+public async Task PostPrelogin_WhenUserDoesNotExist_ShouldCreateNewUserWithDefaultKdfInfo()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns((UserKdfInformation?)null);
+    var defaultKdfInfo = GetDefaultKdf("user@example.com");
+    _userRepository.SaveAsync(Arg.Any<User>()).Verifiable();
+
+    await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com" });
+
+    var user = _userRepository.GetAll().FirstOrDefault();
+    Assert.NotNull(user);
+    Assert.Equal(defaultKdfInfo.Kdf, user.UserKdfInformation.Kdf);
+    Assert.Equal(defaultKdfInfo.KdfIterations, user.UserKdfInformation.KdfIterations);
+}
+````
+### CR3
+
+````csharp
+public async Task PostPrelogin_WhenUserExistsAndPasswordIsIncorrect_ShouldReturnNull()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.PBKDF2_SHA256, KdfIterations = AuthConstants.PBKDF2_ITERATIONS.Default };
+    var hashedPassword = HashPassword("incorrect_password", userKdfInfo);
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(userKdfInfo);
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(new User { UserKdfInformation = userKdfInfo });
+    _userRepository.VerifyHashedPasswordAsync(Arg.Any<string>(), Arg.Any<string>()).Returns(Task.FromResult(false));
+
+    var response = await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "incorrect_password" });
+    Assert.Null(response);
+}
 ````
 
 MS - Prompt:
@@ -651,12 +701,51 @@ P:
 Eu tenho essa classe: {CST}, no entanto, não sei se a cobertura está ideal. No prompt a seguir, lhe informarei um que já está feito, espere pelo prompt antes de iniciar novos testes.
 
 R:
+To provide feedback on the test coverage for your provided code, I'll assume that you have the following test:
+
+```csharp
+[Fact]
+public async Task PostPrelogin_WhenValidEmail_ReturnsPreloginResponseModelWithKdfInformation()
+{
+    // Arrange
+    var email = "test@example.com";
+    var kdfInformation = new KdfInformation { Kdf = KdfType.PBKDF2_SHA256, KdfIterations = 1000 };
+
+    _userRepositoryMock.Setup(ur => ur.GetKdfInformationByEmailAsync(email))
+        .ReturnsAsync(kdfInformation);
+
+    // Act
+    var result = await _sut.PostPrelogin(new PreloginRequestModel { Email = email });
+
+    // Assert
+    Assert.Equal(kdfInformation, result.KdfInformation);
+}
+```
+
+This test covers the case when the `GetKdfInformationByEmailAsync` method returns a valid `KdfInformation` object for the given email. However, it does not cover the following scenarios:
+
+1. When the `GetKdfInformationByEmailAsync` method returns null (i.e., there is no existing user with the given email).
+2. When there is an exception thrown during the execution of `GetKdfInformationByEmailAsync` method.
+
+To cover these scenarios, you could add the following tests:
+
+```csharp
+[Fact]
+public async Task PostPrelogin_WhenEmailNotExist_ReturnsPreloginResponseModelWithDefaultKdf()
+{
+    // Arrange
+    var email = "test@example.com";
+    var defaultKdf = new KdfInformation { Kdf = KdfType.PBKDF2_SHA256, KdfIterations = 1000 };
 
 P:
-Esse é o teste que já está feito {CO}. Não é necessário passar informações de usuário.
+ Você não esperou. Esse é o teste que já está feito {CO}. Não é necessário passar informações de usuário.
 
 R:
+I apologize for the confusion. You're right, the given test doesn't require user information. Here is a more generic version of the test that doesn't rely on a specific user:
 
+{CR}
+
+These tests cover the cases when the registration process fails or throws an exception.
 ````
 
 ### CST
@@ -703,11 +792,60 @@ R:
 ### CR
 
 ````csharp
+public async Task PostRegister_ShouldRegisterUser()
+{
+    // Arrange
+    var passwordHash = "abcdef";
+    var token = "123456";
+    var userGuid = new Guid();
+    _registerUserCommand.RegisterUserViaOrganizationInviteToken(Arg.Any<User>(), passwordHash, token, userGuid)
+        .Returns(Task.FromResult(IdentityResult.Success));
+    var request = new RegisterRequestModel { Name = "Example User", Email = "user@example.com", MasterPasswordHash = passwordHash, MasterPasswordHint = "example", Token = token };
 
+    // Act
+    await _sut.PostRegister(request);
 
+    // Assert
+    await _registerUserCommand.Received(1).RegisterUserViaOrganizationInviteToken(Arg.Is<User>(u => u.Email == request.Email && u.MasterPasswordHint == request.MasterPasswordHint && u.MasterPasswordHash == request.MasterPasswordHash), request.Token, request.OrganizationUserId);
+}
+```
+
+This test covers the registration of a user using the provided `RegisterUserViaOrganizationInviteToken` method. However, it does not cover the following scenarios:
+
+1. When the `RegisterUserViaOrganizationInviteToken` method returns an error (i.e., `IdentityResult.Failed`).
+2. When there is an exception thrown during the execution of the `RegisterUserViaOrganizationInviteToken` method.
+
+To cover these scenarios, you could add the following tests:
+
+```csharp
+public async Task PostRegister_WhenRegistrationFails_ReturnsErrorResponse()
+{
+    // Arrange
+    _registerUserCommandMock.Setup(rv => rv.RegisterUserViaOrganizationInviteToken(Arg.Any<User>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<Guid>()))
+        .Returns(Task.FromResult(IdentityResult.Failed));
+    var request = new RegisterRequestModel { Name = "Example User", Email = "user@example.com", MasterPasswordHash = "abcdef", MasterPasswordHint = "example", Token = "123456", OrganizationUserId = new Guid() };
+
+    // Act
+    var result = await _sut.PostRegister(request);
+
+    // Assert
+    Assert.IsType<ErrorResponseModel>(result);
+}
+
+public async Task PostRegister_WhenExceptionThrownDuringRegistration_ReturnsErrorResponse()
+{
+    // Arrange
+    _registerUserCommandMock.Setup(rv => rv.RegisterUserViaOrganizationInviteToken(Arg.Any<User>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<Guid>()))
+        .Throws<Exception>();
+    var request = new RegisterRequestModel { Name = "Example User", Email = "user@example.com", MasterPasswordHash = "abcdef", MasterPasswordHint = "example", Token = "123456", OrganizationUserId = new Guid() };
+
+    // Act
+    var result = await _sut.PostRegister(request);
+
+    // Assert
+    Assert.IsType<ErrorResponseModel>(result);
+}
 ````
-
----->
 
 ZS - Prompt:
 
@@ -716,6 +854,33 @@ P:
 Eu tenho essa classe: {CST}, gostaria que tentasse aumentar a cobertura, esse já está feito {CO}. Não é necessário passar informações de usuário.
 
 R:
+Ao verificar seu teste `PostPrelogin_WhenUserDoesNotExistAndNoDefaultKdfHmacKeySet_ShouldDefaultToPBKDF`, é possível notar que ele já está testando o caso em que o usuário não existe e a função retorna o KDF padrão (PBKDF2_SHA256 com iterações padrão). No entanto, você pode considerar adicionar mais testes para verificar outros cenários de uso. Aqui estão alguns sugestões de testes adicionais:
+
+1. Teste para verificar se a função retorna o KDF corretamente quando o usuário existe no repositório:
+
+{CR1}
+
+2. Teste para verificar se a função retorna null quando não houver email fornecido:
+
+{CR2}
+
+3. Teste para verificar se a função retorna um erro quando a senha não for fornecida:
+
+{CR3}
+
+4. Teste para verificar se a função retorna um erro quando o email não for fornecido com um formato correto:
+
+{CR4}
+
+5. Teste para verificar se a função retorna um erro quando a senha for muito curta:
+
+{CR5}
+
+6. Teste para verificar se a função retorna um erro quando a senha for muito longa:
+
+{CR6}
+
+As alterações nos testes acima devem ajudar a aumentar a cobertura da função PostPrelogin.
 ````
 
 ### CST
@@ -749,13 +914,70 @@ R:
     }
 ````
 
-### CR
+### CR1
 
 ````csharp
-
+public async Task PostPrelogin_WhenUserExists_ShouldReturnUserKdf()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.Scrypt, KdfIterations = 1000 };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(userKdfInfo));
+    var response = await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com" });
+    Assert.Equal(userKdfInfo.Kdf, response.Kdf);
+    Assert.Equal(userKdfInfo.KdfIterations, response.KdfIterations);
+}
 ````
 
----->
+### CR2
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoEmailProvided_ShouldReturnNull()
+{
+    var preloginRequestModel = new PreloginRequestModel();
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    var response = await _sut.PostPrelogin(preloginRequestModel);
+    Assert.Null(response);
+}
+````
+
+### CR3
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoPasswordProvided_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com" };
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR4
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenEmailIsIncorrect_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "invalid_email", Password = "correct_password" };
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR5
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooShort_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com", Password = "short" };
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR6
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooLong_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com", Password = new string('a', 257) };
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
 
 #### 3. Estender a classe
 
@@ -767,11 +989,48 @@ P:
 Eu tenho essa classe: {CST}, no entanto, faltam cobrir alguns casos. No prompt a seguir, lhe informarei um que já está feito, espere pelo prompt antes de iniciar novos testes.
 
 R:
+Antes de continuar, é importante verificar o teste que já está feito. O teste `PostPrelogin_WhenUserDoesNotExistAndNoDefaultKdfHmacKeySet_ShouldDefaultToPBKDF` já está cobrindo o caso em que o usuário não existe e não há um KDF padrão definido no repositório.
 
+Agora, vamos criar novos testes para cobrir outros casos:
 P:
-Esse é o teste que já está feito {CO}. Não é necessário passar informações de usuário.
+ Você não esperou eu passar o teste. Esse é o teste que já está feito {CO}. Não é necessário passar informações de usuário.
 
 R:
+Agora, vamos criar novos testes para cobrir outros casos:
+
+1. Teste para verificar se a função retorna um erro quando não houver email fornecido:
+
+{CR1}
+
+2. Teste para verificar se a função retorna um erro quando a senha não for fornecida:
+
+{CR2}
+
+3. Teste para verificar se a função retorna um erro quando a senha for muito curta:
+
+{CR3}
+
+4. Teste para verificar se a função retorna um erro quando a senha for muito longa:
+
+{CR4}
+
+5. Teste para verificar se a função retorna um erro quando o email for inválido:
+
+{CR5}
+
+6. Teste para verificar se a função retorna o KDF correto quando o usuário existe no repositório:
+
+{CR6}
+
+7. Teste para verificar se a função retorna um erro quando a senha for inválida:
+
+{CR7}
+
+8. Teste para verificar se a função retorna um erro quando o usuário não existe no repositório:
+
+{CR8}
+
+As alterações nos testes acima devem ajudar a aumentar a cobertura da função PostPrelogin.
 
 ````
 
@@ -817,12 +1076,96 @@ public async Task PostRegister_ShouldRegisterUser()
     }
 ````
 
-### CR
+### CR1
 
 ````csharp
-
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoEmailProvided_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel();
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
 ````
-----> 
+
+### CR2
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoPasswordProvided_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com" };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR3
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooShort_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com", Password = "short" };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR4
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooLong_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "user@example.com", Password = new string('a', 257) };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR5
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenInvalidEmail_ShouldThrowArgumentException()
+{
+    var preloginRequestModel = new PreloginRequestModel { Email = "invalid_email", Password = "correct_password" };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(preloginRequestModel));
+}
+````
+
+### CR6
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenUserExists_ShouldReturnUserKdf()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.Scrypt, KdfIterations = 1000 };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(userKdfInfo));
+    var response = await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "correct_password" });
+    Assert.Equal(userKdfInfo.Kdf, response.Kdf);
+    Assert.Equal(userKdfInfo.KdfIterations, response.KdfIterations);
+}
+````
+
+### CR7
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenInvalidPassword_ShouldThrowArgumentException()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.Scrypt, KdfIterations = 1000 };
+    var hashedPassword = HashPassword("incorrect_password", userKdfInfo);
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(userKdfInfo));
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<User>(new User { Id = 1, Email = "user@example.com", HashedPassword = hashedPassword }));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "incorrect_password" }));
+}
+````
+
+### CR8
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenUserNotFound_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<User>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "incorrect_password" }));
+````
 
 ZS - Prompt:
 
@@ -966,21 +1309,56 @@ public class YourControllerTests
 }
 ````
 
-----> O modelo falhou, visto que ele não teve o contexto necessário dos _mocks_ existentes, embora a ideia do teste seja válida.
-
 MS - Prompt:
 
 ````
 P:
-Eu estou tentando cobrir mais possibilidades de uma classe de POST de e-mails. No prompt a seguir, lhe informarei um que já está feito, espere pelo prompt antes de iniciar novos testes.
+Eu estou tentando cobrir mais possibilidades de uma classe de POST de Webhook da plataforma Stripe {CST}. No prompt a seguir, lhe informarei um que já está feito, espere pelo prompt antes de iniciar novos testes.
 
 R:
+It appears you've shared a code snippet for handling a Stripe webhook in an ASP.NET Core application. The provided code verifies the webhook key, checks the API version, validates the event's cloud region, and processes the event.
+
+Here are some tips and points to consider:
+
+1. **Webhook Key Verification**: The code checks if the key sent in the query matches the configured webhook key. This is a good practice to ensure that only your application can receive webhook events.
+
+2. **Event Parsing**: The code parses the webhook event from the request body using `TryParseEventFromRequestBodyAsync()` method. If the event cannot be parsed, it returns an OK response with a message.
+
+3. **API Version Check**: The code checks if the API version of the received event matches the SDK API version. This is important to ensure compatibility between the Stripe API and your application.
+
+4. **Event Validation**: The code checks if the event has an ID, whether it's in production and whether it's live or test, and if the cloud region matches the one configured on your server. These checks help prevent unnecessary errors and unwanted events from being processed.
+
+5. **Event Processing**: The code calls the `_stripeEventProcessor.ProcessEventAsync(parsedEvent)` method to process the event. This is where you'd handle the specific actions you want to take based on the type of the webhook event.
+
+6. **Logging**: The code logs various events and messages for debugging and error handling purposes. This can help you troubleshoot issues and understand the flow of your application when handling webhook events.
+
+
+>  7. **Exception Handling**: The code snippet you provided doesn't seem to have any explicit error handling for potential exceptions that could be thrown during event processing, parsing, or validation. It's good practice to include robust error handling in your code to handle unexpected exceptions and return appropriate HTTP status codes and messages.
+
+8. **Security Considerations**: Ensure that your application is secure and follows best practices for handling sensitive data, such as encryption and proper access controls. In this case, the Stripe API key should be securely stored and not hard-coded in the application.
+
+9. **Testing**: Regularly test your webhook handling code to ensure it responds correctly to different types of events and edge cases. You can use tools like webhook.site to test Stripe webhooks.
+
+10. **Event Retry Logic**: Consider implementing event retry logic to handle cases where the event processing fails temporarily due to network issues or other transient errors. This can help ensure that important events are not lost and can be processed successfully later on.
 
 P:
 Esse é o teste que já está feito {CO}. Não é necessário passar informações de usuário.
 
 R:
+ The test you provided checks if the webhook endpoint returns a 400 Bad Request status code when required parameters like `freshdeskWebhookKey` or `model` are null. This is a good test to ensure that your webhook endpoint is handling null values correctly and returning an appropriate HTTP status code.
 
+Here are some additional tests you could consider:
+
+1. Testing the webhook endpoint with a valid webhook key and a valid model to ensure it processes the event correctly.
+2. Testing the webhook endpoint with an invalid webhook key to ensure it logs an error and returns a 400 Bad Request status code.
+3. Testing the webhook endpoint with a valid webhook key and an invalid model to ensure it logs an error and returns a 400 Bad Request status code.
+4. Testing the webhook endpoint with a valid webhook key, a valid model, and invalid values for specific properties in the model to ensure it logs an error and returns a 400 Bad Request status code.
+5. Testing the webhook endpoint with a valid webhook key, a valid model, and edge cases like empty strings, null values, or invalid formats for specific properties in the model to ensure it handles these cases correctly.
+6. Testing the webhook endpoint with a valid webhook key, a valid model, and a mismatched API version to ensure it logs a warning and returns a 200 OK status code.
+7. Testing the webhook endpoint with a valid webhook key, a valid model, and an event that's not for the cloud region configured on your server to ensure it logs an error and returns a 200 OK status code.
+8. Testing the webhook endpoint with a valid webhook key, a valid model, and an event in test mode when the application is in production to ensure it logs a warning and returns a 200 OK status code.
+9. Testing the webhook endpoint with a valid webhook key, a valid model, and an event with missing properties to ensure it logs an error and returns a 200 OK status code.
+10. Testing the webhook endpoint with a valid webhook key, a valid model, and an event that contains a large payload to ensure it can handle large amounts of data.
 ````
 
 ### CST
@@ -1071,11 +1449,9 @@ R:
 
 ### CR
 
-````csharp
-
 ````
-
----->
+Não foram fornecidos códigos de teste de fato, apenas sugestões do que poderia ser feito.
+````
 
 ZS - Prompt:
 
@@ -1084,12 +1460,48 @@ P:
 Eu tenho essa classe: {CST}, gostaria que fizesse mais testes, cobrindo outros acontecimentos possíveis, esse já está feito {CO}. Não é necessário passar informações de usuário.
 
 R:
+Agora, vamos criar novos testes para cobrir outros casos:
+
+1. Teste para verificar se a função retorna um erro quando não houver email fornecido:
+
+{CR1}
+
+2. Teste para verificar se a função retorna um erro quando a senha não for fornecida:
+
+```csharp
+{CR2}
+```
+
+3. Teste para verificar se a função retorna um erro quando a senha for muito curta:
+
+{CR3}
+
+4. Teste para verificar se a função retorna um erro quando a senha for muito longa:
+
+{CR4}
+
+5. Teste para verificar se a função retorna um erro quando o email for inválido:
+
+{CR5}
+
+6. Teste para verificar se a função retorna um erro quando o email não existe no repositório:
+
+{CR6}
+
+7. Teste para verificar se a função retorna um erro quando a senha for inválida:
+
+{CR7}
+
+8. Teste para verificar se a função retorna o KDF correto quando o usuário existe no repositório e a senha for válida:
+
+{CR8}
+
+As alterações nos testes acima devem ajudar a aumentar a cobertura da função PostPrelogin.
 ````
 
 ### CST
 
 ````csharp
-// Moved from API, If you modify this endpoint, please update API as well. Self hosted installs still use the API endpoints.
     [HttpPost("prelogin")]
     public async Task<PreloginResponseModel> PostPrelogin([FromBody] PreloginRequestModel model)
     {
@@ -1105,7 +1517,6 @@ R:
 ### CO
 
 ````csharp
-  [Fact]
     public async Task PostPrelogin_WhenUserExists_ShouldReturnUserKdfInfo()
     {
         var userKdfInfo = new UserKdfInformation
@@ -1122,13 +1533,90 @@ R:
     }
 ````
 
-### CR
+### CR1
 
 ````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoEmailProvided_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel()));
+}
+````
+### CR2
 
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenNoPasswordProvided_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com" }));
+}
+````
+### CR3
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooShort_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "short" }));
+}
+````
+### CR4
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenPasswordIsTooLong_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = new string('a', 257) }));
+}
+````
+### CR5
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenInvalidEmail_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "invalid_email", Password = "correct_password" }));
+}
+````
+### CR6
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenUserNotFound_ShouldThrowArgumentException()
+{
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<UserKdfInformation?>(null));
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<User>(null));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "incorrect_password" }));
+}
+````
+### CR7
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenInvalidPassword_ShouldThrowArgumentException()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.PBKDF2_SHA256, KdfIterations = AuthConstants.PBKDF2_ITERATIONS.Default };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(userKdfInfo);
+    var hashedPassword = HashPassword("incorrect_password", userKdfInfo);
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<User>(new User { Id = 1, Email = "user@example.com", HashedPassword = hashedPassword }));
+    await Assert.ThrowsAsync<ArgumentException>(() => _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "incorrect_password" }));
+}
+````
+### CR8
+
+````csharp
+public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenUserExistsAndPasswordIsCorrect_ShouldReturnUserKdfInfo()
+{
+    var userKdfInfo = new UserKdfInformation { Kdf = KdfType.PBKDF2_SHA256, KdfIterations = AuthConstants.PBKDF2_ITERATIONS.Default };
+    _userRepository.GetKdfInformationByEmailAsync(Arg.Any<string>()).Returns(userKdfInfo);
+    var hashedPassword = HashPassword("correct_password", userKdfInfo);
+    _userRepository.GetUserByEmailAsync(Arg.Any<string>()).Returns(Task.FromResult<User>(new User { Id = 1, Email = "user@example.com", HashedPassword = hashedPassword }));
+    var response = await _sut.PostPrelogin(new PreloginRequestModel { Email = "user@example.com", Password = "correct_password" });
+    Assert.Equal(userKdfInfo.Kdf, response.Kdf);
+    Assert.Equal(userKdfInfo.KdfIterations, response.KdfIterations);
+}
 ````
 
----->
+##### Para os objetivos 2 e 3:
+---> O modelo falhou em fazer testes que se encaixavam nas classes existentes, visto que ele não teve o contexto necessário dos _mocks_ e das outras variáveis de tests. No entanto, ele apresentou ideias concisas, organisadas e de acordo com as boas práticas da Engenharia de Software que, se fossem devidamente adaptados, seriam um grande aditivo aos testes existentes. Infelizmente, essa quantização possuía uma janela de contexto muito pequena, logo passar a classe que estava sendo testada inteira e a classe de teste inteira não era uma opção, pois o tamanho do _prompt_ apenas deixaria o modelo mais confuso.
 
 #### 4. Manter o padrão
 
