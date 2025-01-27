@@ -1617,7 +1617,7 @@ public async Task<Task<PreloginResponseModel>> PostPrelogin_WhenUserExistsAndPas
 ````
 
 ##### Para os objetivos 2 e 3:
----> O modelo falhou em fazer testes que se encaixavam nas classes existentes, visto que ele não teve o contexto necessário dos _mocks_ e das outras variáveis de tests. No entanto, ele apresentou ideias concisas, organisadas e de acordo com as boas práticas da Engenharia de Software que, se fossem devidamente adaptados, seriam um grande aditivo aos testes existentes. Infelizmente, essa quantização possuía uma janela de contexto muito pequena, logo passar a classe que estava sendo testada inteira e a classe de teste inteira não era uma opção, pois o tamanho do _prompt_ apenas deixaria o modelo mais confuso.
+---> O modelo falhou em fazer testes que se encaixavam nas classes existentes, visto que ele não teve o contexto necessário dos _mocks_ e das outras variáveis de testes. No entanto, ele apresentou ideias concisas, organizadas e de acordo com as boas práticas da Engenharia de Software que, se fossem devidamente adaptadas, seriam um grande aditivo aos testes existentes.  Infelizmente, essa quantização possuía uma janela de contexto muito pequena, logo passar a classe que estava sendo testada inteira e a classe de teste inteira não era uma opção, pois o tamanho do _prompt_ apenas deixaria o modelo mais confuso.
 
 #### 4. Manter o padrão
 
