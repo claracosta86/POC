@@ -154,9 +154,9 @@ In this example, I'm assuming that `YourClass` is the System Under Test (SUT), `
 You'll need to adjust this example based on the actual implementation in your code.
 ````
 
-````csharp
 ### CO
 
+````csharp
 public async Task PostPrelogin_WhenUserExists_ShouldReturnUserKdfInfo()
     {
         var userKdfInfo = new UserKdfInformation
