@@ -173,8 +173,9 @@ public async Task PostPrelogin_WhenUserExists_ShouldReturnUserKdfInfo()
     }
 ````
 
-````csharp
 ### CAA
+
+````csharp
     public async Task PostPrelogin_WhenUserDoesNotExistAndNoDefaultKdfHmacKeySet_ShouldDefaultToPBKDF() 
     { 
         SetDefaultKdfHmacKey(null); 
@@ -2141,7 +2142,7 @@ public async Task Post_prelogin_WhenUserDoesNotExist_AND_DefaultKdfHmacKey_isset
 
 
 
-### Observação:
+### Observações:
 1. Os tempos de resposta variável entre um e dez minutos, dependendo do tamanho do _prompt_ ou da complexidade da tarefa;
 2. Quando havia pouco texto de comando (em português), o modelo respondia em inglês, já que a linguagem do código é em inglês. No entanto a mistura de línguas não pareceu afetar seu comportamento, como é o ideal;
 3. O modelo foi muito inventivo, embora fosse capaz de entender o que estava sendo pedido e mesmo sendo informado que os _mocks_ e outras informações passadas já existiam, ele criava variáveis dentro do teste, fazendo com que eles não passassem. 
